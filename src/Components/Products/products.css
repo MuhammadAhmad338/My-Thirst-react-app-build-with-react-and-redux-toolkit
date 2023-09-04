@@ -1,0 +1,32 @@
+.products {
+    margin: 0 auto; /* Center the grid horizontally by setting left and right margins to "auto" */
+    max-width: 960px; 
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
+    gap: 30px; 
+}
+
+.product-price {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.2rem;
+}
+
+button {
+    background-color: lightseagreen;
+    border: 1px solid black;
+    padding: 5px 10px;
+    cursor: pointer;
+    outline: none;
+    color: black;
+}
+
+@media screen and (max-width: 400px) {
+    .products {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
