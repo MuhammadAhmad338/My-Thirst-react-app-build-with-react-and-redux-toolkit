@@ -58,9 +58,9 @@ const CartSidebar = ({ closeCart }: any) => {
               </div>
               <div className="cart-item-buttons">
                 <div className="cart-item-button">
-                  <div className="cart-item-decrease">-</div>
+                  <div className="cart-item-decrease" onClick={decreaseQuantity}>-</div>
                   <p>{item.quantity}</p>
-                  <div className="cart-item-increase">+</div>
+                  <div className="cart-item-increase" onClick={increaseQuantity}>+</div>
                 </div>
                 <img src={cancel} onClick={() => removeItemFromCart(item.id)} alt="" width={25} height={25} />
               </div>

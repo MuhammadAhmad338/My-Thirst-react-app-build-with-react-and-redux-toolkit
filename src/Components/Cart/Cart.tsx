@@ -18,7 +18,9 @@ const Cart = () => {
 
   return (
     <div className="cart">
-        {!cartItems.length && <div className="empty-cart">No Items in the cart!</div>}
+      {!cartItems.length && (
+        <div className="empty-cart">No Items in the cart!</div>
+      )}
       {cartItems.map((item) => (
         <React.Fragment key={item.id}>
           <img src={item.image} alt="" height={200} width={200} />
@@ -28,10 +30,9 @@ const Cart = () => {
           <button onClick={() => removeformcart(item.id)}>
             REMOVE FROM CART
           </button>
-      <button onClick={clearcart}>CLEAR CART</button>
+          <button onClick={clearcart}>CLEAR CART</button>
         </React.Fragment>
       ))}
-
     </div>
   );
 };
