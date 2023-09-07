@@ -14,6 +14,22 @@
     margin-top: 1.2rem;
 }
 
+.loading {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.failed {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 button {
     background-color: lightseagreen;
     border: 1px solid black;

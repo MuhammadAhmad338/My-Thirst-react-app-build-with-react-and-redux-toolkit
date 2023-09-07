@@ -4,6 +4,8 @@ import changeNameReducer from '../Services/changeNameService';
 import apiReducer from '../Services/getProducts';
 import cartReducer from '../Services/cartService';
 import wishlistReducer from '../Services/wishlist';
+import accountReducer from '../Services/account';
+import searchReducer from '../Services/searchService';
 
 const store = configureStore({
     reducer: {
@@ -11,7 +13,9 @@ const store = configureStore({
         changeName: changeNameReducer,
         api: apiReducer,
         cart: cartReducer,
-        wishlist: wishlistReducer
+        wishlist: wishlistReducer,
+        account: accountReducer,
+        search: searchReducer
     }
 });
 

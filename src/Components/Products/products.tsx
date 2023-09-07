@@ -7,11 +7,10 @@ import { useAppDispatch } from "../../hooks/hooks";
 import { addToCart } from "../../Services/cartService";
 import { Product } from "../../Interfaces/Product";
 import { CartProduct } from "../../Interfaces/cartItems";
-
-import "./products.css";
 import { addToWishlist } from "../../Services/wishlist";
 import { WishlistProduct } from "../../Interfaces/wishlistItems";
-
+import img from "../../assets/love.png";
+import "./products.css";
 
 const Products = () => {
   const dispatch = useAppDispatch();
@@ -25,11 +24,11 @@ const Products = () => {
   }, [dispatch]);
 
   if (status === "loading") {
-    return <div>Loading...</div>;
+    return <div className="loading">Loading...</div>;
   }
 
   if (status === "failed") {
-    return <div>Failed... {error}</div>;
+    return <div className="failed">Failed... {error}</div>;
   }
 
   const addtocart = (item: Product) => {
@@ -54,7 +53,7 @@ const Products = () => {
           <div>{item.description}</div>
           <div className="product-price">
             <div> $ {item.price}</div>
-            <img src="src/assets/love.png" alt="" width={25} height={25} onClick={() => addtowishlistplease(item)} />
+            <img src={img} alt="" width={25} height={25} onClick={() => addtowishlistplease(item)} />
             <button onClick={() => addtocart(item)}>ADD TO CART</button>
           </div>
         </div>

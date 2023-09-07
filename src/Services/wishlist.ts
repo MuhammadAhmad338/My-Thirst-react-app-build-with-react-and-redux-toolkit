@@ -25,7 +25,7 @@ const wishlistSlice = createSlice({
       if (isExists) {
         state.items = state.items.filter((item) => item.id !== removeItemID);
       } else {
-        window.alert("Not Existed in Wishlist");
+        window.alert("Not Existed in Wishlist!");
       }
     },
     clearWishlist: (state) => {
@@ -34,5 +34,6 @@ const wishlistSlice = createSlice({
   },
 });
 
-export const { addToWishlist, removeFromWishlist, clearWishlist } = wishlistSlice.actions;
+export const { addToWishlist, removeFromWishlist, clearWishlist } =
+  wishlistSlice.actions;
 export default wishlistSlice.reducer;

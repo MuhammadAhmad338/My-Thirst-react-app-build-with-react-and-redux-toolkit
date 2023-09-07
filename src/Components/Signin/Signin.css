@@ -1,0 +1,39 @@
+.signin {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 80vh;
+  margin: 0 auto;
+  max-width: 35%;
+  gap: 50px;
+}
+
+.signin-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+input {
+  padding: 15px 10px;
+}
+
+.signin-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.signin-button {
+    padding: 12px 30px;
+}
+
+.create-account {
+    text-decoration: none;
+    color: black;
+    border-bottom: 1px solid black;
+}

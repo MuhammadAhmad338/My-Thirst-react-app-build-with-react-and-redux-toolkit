@@ -20,6 +20,16 @@ li:hover {
     cursor: pointer;
 }
 
+
+.header-links {
+  text-decoration: none;
+  color: black;  
+}
+
+.header-links:hover {
+    border-bottom: 1px solid black;
+}
+
 .header-heading {
     display: flex;
     flex-direction: row;

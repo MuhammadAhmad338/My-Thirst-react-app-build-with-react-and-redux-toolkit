@@ -11,16 +11,16 @@ const initialState: ApiState = {
 };
 
 const config = {
-    headers: {
-      'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
-    },
-  };
+  headers: {
+    'Content-Type': 'application/json', // Set the content type you expect from the server
+  },
+};
 
 export const fetchProducts = createAsyncThunk<Product[], void>(
   "api/fetchProducts",
   async () => {
     const response = await axios.get<Product[]>(
-      "https://fakestoreapi.com/products",config
+      "https://webapp008.onrender.com/products/allProducts", config
     );
     return response.data;
   }
