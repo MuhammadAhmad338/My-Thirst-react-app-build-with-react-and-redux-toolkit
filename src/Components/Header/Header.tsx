@@ -6,14 +6,34 @@ import img3 from "../../assets/search.png";
 import img4 from "../../assets/shopping-bag.png";
 import img5 from "../../assets/user.png";
 import CartSidebar from "../Cart/CartSidebar/CartSidebar";
+import { useAppDispatch } from "../../hooks/hooks.ts";
+import { searchCategory } from "../../Services/categoryService.ts";
+import { Category } from "../../Interfaces/categoryInterface.ts";
 import "./Header.css";
 
 const Header = () => {
   const [isOpen, setisOpen] = useState(false);
+  const [toggleDropdown, settoggleDropdown] = useState(false);
+  const categoryDispatch = useAppDispatch();
 
   const toggleFunction = () => {
     setisOpen(!isOpen);
   };
+
+  const filteredProducts = (query: string) => {
+    categoryDispatch(searchCategory(query));
+  };
+
+  const toggle = () => {
+    settoggleDropdown(!toggleDropdown);
+  };
+
+  const listOfCategories: Category[] = [
+    { name: "electronics" },
+    { name: "men's clothing" },
+    { name: "jewelry" },
+    { name: "women's clothing" },
+  ];
 
   return (
     <>
@@ -27,9 +47,12 @@ const Header = () => {
           <Link to="/" className="header-links">
             Home
           </Link>
-          <Link to="/" className="header-links">
-            About
-          </Link>
+          <li
+            className="header-links"
+            onMouseEnter={toggle}
+          >
+            Categories
+          </li>
           <Link to="/" className="header-links">
             Contact
           </Link>
@@ -56,6 +79,15 @@ const Header = () => {
           />
         </div>
       </div>
+      {toggleDropdown &&
+        <div className="dropdown">
+          {listOfCategories.map((index) => (
+            <ul key={index.name}>
+              <Link  to="/products/category" onClick={() => filteredProducts(index.name)}>{index.name}</Link>
+            </ul>
+          ))}
+        </div>
+      }
     </>
   );
 };

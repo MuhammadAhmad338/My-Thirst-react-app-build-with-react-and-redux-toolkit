@@ -1,6 +1,6 @@
 .cart-sideBar {
   height: 100vh;
-  width: 32%;
+  width: 400px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -78,7 +78,7 @@ button:active {
 
 .cart-item {
   padding: 10px 15px;
-  gap: 10px;
+  gap: 25px;
   display: flex;
   flex-direction: row;
 }

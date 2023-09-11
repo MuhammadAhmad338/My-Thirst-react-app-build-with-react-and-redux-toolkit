@@ -1,51 +1,66 @@
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 17px 25px;
-    background-color: lightseagreen;
-    color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 17px 25px;
+  background-color: lightseagreen;
+  color: black;
 }
 
 ul {
-    display: flex;
-    list-style-type: none;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+  display: flex;
+  list-style-type: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
 }
 
 li:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-
 
 .header-links {
   text-decoration: none;
-  color: black;  
+  color: black;
 }
 
 .header-links:hover {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .header-heading {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 26px;
-    gap: 8px;
-    color: black;
-    text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 26px;
+  gap: 8px;
+  color: black;
+  text-decoration: none;
 }
 
 .header-icons {
-    display: flex;
-    flex-direction: row;
-    align-self: center;
-    justify-content: center;
-    gap: 15px;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-content: center;
+  gap: 15px;
 }
+
+.dropdown {
+    position: relative;
+    display: flex;
+    width: 200px;
+    flex-direction: column;
+    border-radius: 0px;
+    border: 1px solid black;
+    padding: 12px;
+    gap: 5px;
+    justify-content: center;
+    margin: 0 41%;
+    background-color: darkcyan;
+    border-radius: 10px;
+}
+

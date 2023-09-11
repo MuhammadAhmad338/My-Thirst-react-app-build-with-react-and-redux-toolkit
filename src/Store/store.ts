@@ -6,6 +6,7 @@ import cartReducer from '../Services/cartService';
 import wishlistReducer from '../Services/wishlist';
 import accountReducer from '../Services/account';
 import searchReducer from '../Services/searchService';
+import categoryReducer from '../Services/categoryService.ts';
 
 const store = configureStore({
     reducer: {
@@ -15,7 +16,8 @@ const store = configureStore({
         cart: cartReducer,
         wishlist: wishlistReducer,
         account: accountReducer,
-        search: searchReducer
+        search: searchReducer,
+        category: categoryReducer
     }
 });
 

@@ -10,11 +10,14 @@ import { CartProduct } from "../../Interfaces/cartItems";
 import { addToWishlist } from "../../Services/wishlist";
 import { WishlistProduct } from "../../Interfaces/wishlistItems";
 import img from "../../assets/love.png";
+import { useNavigate } from "react-router-dom";
 import "./products.css";
+
 
 const Products = () => {
   const dispatch = useAppDispatch();
   const dispatch1 = useDispatch();
+  const navigate = useNavigate();
   const data = useSelector((state: RootState) => state.api.data);
   const error = useSelector((state: RootState) => state.api.error);
   const status = useSelector((state: RootState) => state.api.status);
@@ -34,29 +37,34 @@ const Products = () => {
   const addtocart = (item: Product) => {
     dispatch1(addToCart(item as unknown as CartProduct));
   };
+
   const addtowishlistplease = (item: Product) => {
     dispatch1(addToWishlist(item as unknown as WishlistProduct));
+  }
+
+  const componentB = (id: number, item: Product) => {
+    navigate(`/product/${id}`, {state:  {item}});
   }
 
   return (
     <div className="products">
       {data.map((item) => (
-        <div className="product-card" key={item.id}>
-          <div>{item.category}</div>
-          <img
-            src={item.image}
-            alt="Product Card Image"
-            height={300}
-            width={300}
-          />
-          <div>{item.title}</div>
-          <div>{item.description}</div>
-          <div className="product-price">
-            <div> $ {item.price}</div>
-            <img src={img} alt="" width={25} height={25} onClick={() => addtowishlistplease(item)} />
-            <button onClick={() => addtocart(item)}>ADD TO CART</button>
+          <div onClick={() => componentB(item.id, item)} className="product-card" key={item.id}>
+            <div>{item.category}</div>
+            <img
+              src={item.image}
+              alt="Product Card Image"
+              height={300}
+              width={300}
+            />
+            <div>{item.title}</div>
+            <div>{item.description}</div>
+            <div className="product-price">
+              <div> $ {item.price}</div>
+              <img src={img} alt="" width={25} height={25} onClick={() => addtowishlistplease(item)} />
+              <button onClick={() => addtocart(item)}>ADD TO CART</button>
+            </div>
           </div>
-        </div>
       ))}
     </div>
   );

@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
-import { useSelector } from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import { RootState } from "../../../Store/store";
 import closeIcon from "../../../assets/close.png";
 import cancel from "../../../assets/cancel.png";
-import { useDispatch } from "react-redux";
-import { removeFromCart } from "../../../Services/cartService";
+import {addToCart, removeFromCart} from "../../../Services/cartService";
+import { CartProduct } from "../../../Interfaces/cartItems.ts";
 import "./CartSidebar.css";
 
 const CartSidebar = ({ closeCart }: any) => {
@@ -15,13 +15,12 @@ const CartSidebar = ({ closeCart }: any) => {
   const removeItemFromCart = (item: number) => {
     dispatch(removeFromCart(item));
   }
-
-  const increaseQuantity = () => {
-       console.log("Increase Quantity");
+  const increaseQuantity = (item: CartProduct) => {
+    dispatch(addToCart(item));
   }
 
-  const decreaseQuantity = () => {
-       console.log("Decrease Quantity!");  
+  const decreaseQuantity = (id: number) => {
+    dispatch(removeFromCart(id));
   }
 
   return (
@@ -58,9 +57,9 @@ const CartSidebar = ({ closeCart }: any) => {
               </div>
               <div className="cart-item-buttons">
                 <div className="cart-item-button">
-                  <div className="cart-item-decrease" onClick={decreaseQuantity}>-</div>
+                  <div className="cart-item-decrease" onClick={() => decreaseQuantity(item.id)}>-</div>
                   <p>{item.quantity}</p>
-                  <div className="cart-item-increase" onClick={increaseQuantity}>+</div>
+                  <div className="cart-item-increase" onClick={() => increaseQuantity(item)}>+</div>
                 </div>
                 <img src={cancel} onClick={() => removeItemFromCart(item.id)} alt="" width={25} height={25} />
               </div>

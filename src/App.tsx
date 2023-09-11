@@ -6,6 +6,8 @@ import Footer from "./Components/Footer/Footer";
 import Cart from "./Components/Cart/Cart";
 import Signin from "./Components/Signin/Signin";
 import Signup from "./Components/Signup/Signup";
+import Category from "./Components/Category/Category.tsx";
+import SingleProduct from "./Components/Products/SingleProduct/SingleProduct.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -19,11 +21,12 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/account/register" element={<Signup />} />
           <Route path="/account/login" element={<Signin />} />
+          <Route path="/products/category" element={<Category />}/>
+          <Route path="/product/:id" element={<SingleProduct />}/>
         </Routes>
         <Footer />
       </BrowserRouter>
     </React.Fragment>
   );
 }
-
 export default App;
