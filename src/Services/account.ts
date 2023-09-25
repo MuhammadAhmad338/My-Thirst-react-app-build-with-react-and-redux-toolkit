@@ -17,6 +17,7 @@ const config = {
 export const register = createAsyncThunk<User, SignUpState>(
     'auth/register', async (userData) => {
       const response = await axios.post("https://azurefirstapp1-c2g74jsita-uc.a.run.app/account/register", userData, config);
+      console.log(response.data)
       return response.data;
     }
 );
@@ -24,6 +25,7 @@ export const register = createAsyncThunk<User, SignUpState>(
 export const login = createAsyncThunk<User, SignInState>(
     'auth/login', async (credentials) => {
       const response = await axios.post("https://azurefirstapp1-c2g74jsita-uc.a.run.app/account/login", credentials, config);
+      console.log(response.data)
       return response.data;
     }
 )
