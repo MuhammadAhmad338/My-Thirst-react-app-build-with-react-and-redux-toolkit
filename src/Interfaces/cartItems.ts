@@ -8,5 +8,6 @@ export interface CartProduct {
 }
 
 export interface CartState {
-    items: CartProduct[]
+    items: CartProduct[] ,
+    subtotal: number
 }

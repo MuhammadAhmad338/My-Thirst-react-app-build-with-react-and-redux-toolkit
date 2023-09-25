@@ -7,6 +7,7 @@ import wishlistReducer from '../Services/wishlist';
 import accountReducer from '../Services/account';
 import searchReducer from '../Services/searchService';
 import categoryReducer from '../Services/categoryService.ts';
+import toggleReducer from '../Services/toggleService.ts';
 
 const store = configureStore({
     reducer: {
@@ -17,7 +18,8 @@ const store = configureStore({
         wishlist: wishlistReducer,
         account: accountReducer,
         search: searchReducer,
-        category: categoryReducer
+        category: categoryReducer,
+        toggle: toggleReducer
     }
 });
 

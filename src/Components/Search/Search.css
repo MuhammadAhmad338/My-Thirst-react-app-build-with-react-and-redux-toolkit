@@ -19,3 +19,18 @@ input {
     background-color: lightskyblue;
     border-left: none;
 }
+
+.search-dropdown {
+    border: 1px solid black;
+    font-weight: bold;
+    padding: 6px 4px;
+    width: 100%;
+    margin: 0 auto;
+    background-color: white;
+    text-decoration: none;
+}
+
+.search-dropdown:hover {
+    background-color: rgb(238, 237, 237);
+    cursor: pointer;
+}

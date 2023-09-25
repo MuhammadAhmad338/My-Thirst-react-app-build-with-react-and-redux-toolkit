@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from "react";
 import {useDispatch, useSelector} from "react-redux";
@@ -6,10 +7,15 @@ import closeIcon from "../../../assets/close.png";
 import cancel from "../../../assets/cancel.png";
 import {addToCart, removeFromCart} from "../../../Services/cartService";
 import { CartProduct } from "../../../Interfaces/cartItems.ts";
+import { toggleCartSide  } from "../../../Services/toggleService.ts";
+import { useNavigate } from "react-router-dom";
 import "./CartSidebar.css";
 
 const CartSidebar = ({ closeCart }: any) => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const total = useSelector((state: RootState) => state.cart.subtotal);
+  const toggleIt = useSelector((state: RootState) => state.toggle.toggle);
+  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const removeItemFromCart = (item: number) => {
@@ -21,6 +27,11 @@ const CartSidebar = ({ closeCart }: any) => {
 
   const decreaseQuantity = (id: number) => {
     dispatch(removeFromCart(id));
+  }
+
+  const continueShopping = () => {
+    dispatch(toggleCartSide(!toggleIt));
+    navigate(`/`);
   }
 
   return (
@@ -45,9 +56,8 @@ const CartSidebar = ({ closeCart }: any) => {
       )}
       {cartItems.length > 1 ? (
         cartItems.map((item) => (
-          <React.Fragment>
-            <div className="cart-item-card">
-              <div key={item.id} className="cart-item">
+            <div key={item.id} className="cart-item-card">
+              <div  className="cart-item">
                 <img src={item.image} alt="" width={100} height={100} />
                 <div className="cartItem-info">
                   <p>{item.title}</p>
@@ -64,7 +74,6 @@ const CartSidebar = ({ closeCart }: any) => {
                 <img src={cancel} onClick={() => removeItemFromCart(item.id)} alt="" width={25} height={25} />
               </div>
             </div>
-          </React.Fragment>
         ))
       ) : (
         <div className="cart-is-empty">
@@ -79,7 +88,7 @@ const CartSidebar = ({ closeCart }: any) => {
           </div>
           <div className="empty-cart-body">
             <h1>Your Cart is Empty</h1>
-            <button>Continue Shopping</button>
+            <button onClick={continueShopping}>Continue Shopping</button>
           </div>
         </div>
       )}

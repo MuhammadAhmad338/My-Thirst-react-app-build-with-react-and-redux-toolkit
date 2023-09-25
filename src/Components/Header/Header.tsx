@@ -9,16 +9,20 @@ import CartSidebar from "../Cart/CartSidebar/CartSidebar";
 import { useAppDispatch } from "../../hooks/hooks.ts";
 import { searchCategory } from "../../Services/categoryService.ts";
 import { Category } from "../../Interfaces/categoryInterface.ts";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../Store/store.ts";
+import { toggleCartSide } from '../../Services/toggleService.ts';
 import "./Header.css";
 
 const Header = () => {
-  const [isOpen, setisOpen] = useState(false);
+  const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
   const [toggleDropdown, settoggleDropdown] = useState(false);
   const categoryDispatch = useAppDispatch();
+  const dispatch = useDispatch();
 
-  const toggleFunction = () => {
-    setisOpen(!isOpen);
-  };
+  const toggleSideCart = () => {
+    dispatch(toggleCartSide(!toggleCart));
+  }
 
   const filteredProducts = (query: string) => {
     categoryDispatch(searchCategory(query));
@@ -37,7 +41,7 @@ const Header = () => {
 
   return (
     <>
-      {isOpen && <CartSidebar closeCart={toggleFunction} />}
+      {toggleCart && <CartSidebar closeCart={toggleSideCart} />}
       <div className="header">
         <Link to="/" className="header-heading">
           <p>Thirst</p>
@@ -73,7 +77,7 @@ const Header = () => {
           <img
             src={img4}
             alt=""
-            onClick={toggleFunction}
+            onClick={toggleSideCart}
             width={30}
             height={30}
           />
@@ -83,7 +87,7 @@ const Header = () => {
         <div className="dropdown">
           {listOfCategories.map((index) => (
             <ul key={index.name}>
-              <Link  to="/products/category" onClick={() => filteredProducts(index.name)}>{index.name}</Link>
+              <Link to="/products/category" onClick={() => filteredProducts(index.name)}>{index.name}</Link>
             </ul>
           ))}
         </div>
