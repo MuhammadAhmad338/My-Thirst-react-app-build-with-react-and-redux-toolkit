@@ -7,7 +7,7 @@ import "./Cart.css";
 const Cart = () => {
   const dispatch = useDispatch();
   const cartItems = useSelector((state: RootState) => state.cart.items);
-
+  
   const removeformcart = (itemId: number) => {
     dispatch(removeFromCart(itemId));
   };
