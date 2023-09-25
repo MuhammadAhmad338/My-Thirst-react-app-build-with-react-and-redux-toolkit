@@ -13,7 +13,6 @@ import "./CartSidebar.css";
 
 const CartSidebar = ({ closeCart }: any) => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
-  const total = useSelector((state: RootState) => state.cart.subtotal);
   const toggleIt = useSelector((state: RootState) => state.toggle.toggle);
   const navigate = useNavigate();
   const dispatch = useDispatch();

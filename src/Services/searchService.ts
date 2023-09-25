@@ -14,7 +14,7 @@ export const search = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
     const response = await axios.get(
-      `https://webappoo8.onrender.com/products/search?title=${query}`
+      `https://azurefirstapp1-c2g74jsita-uc.a.run.app/products/search?title=${query}`
     );
     return response.data;
   }

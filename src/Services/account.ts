@@ -16,14 +16,14 @@ const config = {
 
 export const register = createAsyncThunk<User, SignUpState>(
     'auth/register', async (userData) => {
-      const response = await axios.post("https://webappoo8.onrender.com/account/register", userData, config);
+      const response = await axios.post("https://azurefirstapp1-c2g74jsita-uc.a.run.app/account/register", userData, config);
       return response.data;
     }
 );
 
 export const login = createAsyncThunk<User, SignInState>(
     'auth/login', async (credentials) => {
-      const response = await axios.post("https://webappoo8.onrender.com/account/login", credentials, config);
+      const response = await axios.post("https://azurefirstapp1-c2g74jsita-uc.a.run.app/account/login", credentials, config);
       return response.data;
     }
 )

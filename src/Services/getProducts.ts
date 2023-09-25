@@ -20,7 +20,7 @@ export const fetchProducts = createAsyncThunk<Product[], void>(
   "api/fetchProducts",
   async () => {
     const response = await axios.get<Product[]>(
-      "https://webappoo8.onrender.com/products/allProducts", config
+      "https://azurefirstapp1-c2g74jsita-uc.a.run.app/products/allProducts", config
     );
     return response.data;
   }
