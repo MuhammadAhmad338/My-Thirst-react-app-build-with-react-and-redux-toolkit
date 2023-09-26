@@ -8,6 +8,7 @@ import accountReducer from '../Services/account';
 import searchReducer from '../Services/searchService';
 import categoryReducer from '../Services/categoryService.ts';
 import toggleReducer from '../Services/toggleService.ts';
+import toggleSearchReducer from '../Services/toggleSearchService.ts';
 
 const store = configureStore({
     reducer: {
@@ -19,7 +20,8 @@ const store = configureStore({
         account: accountReducer,
         search: searchReducer,
         category: categoryReducer,
-        toggle: toggleReducer
+        toggle: toggleReducer,
+        toggleSearch: toggleSearchReducer
     }
 });
 

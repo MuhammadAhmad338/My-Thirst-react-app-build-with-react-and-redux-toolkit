@@ -6,3 +6,7 @@ export interface SearchState {
     status: 'idle' | 'loading' | 'succeeded' | 'failed',
     error: string | null
 }
+
+export interface SearchToggleInterface {
+    searchTheToggle: boolean
+}

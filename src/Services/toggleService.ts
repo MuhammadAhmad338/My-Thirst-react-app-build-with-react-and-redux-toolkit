@@ -16,6 +16,5 @@ const toggleService = createSlice({
     }
 });
 
-
 export const { toggleCartSide }  = toggleService.actions;
 export default toggleService.reducer;

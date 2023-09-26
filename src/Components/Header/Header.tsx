@@ -12,16 +12,23 @@ import { Category } from "../../Interfaces/categoryInterface.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Store/store.ts";
 import { toggleCartSide } from '../../Services/toggleService.ts';
+import { toggleSearch } from '../../Services/toggleSearchService.ts';
+import TopSearchContainer from "../Search/TopSearch/TopSearch.tsx";
 import "./Header.css";
 
 const Header = () => {
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
+  const toggleSearchIcon = useSelector((item: RootState) => item.toggleSearch.searchTheToggle);
   const [toggleDropdown, settoggleDropdown] = useState(false);
   const categoryDispatch = useAppDispatch();
   const dispatch = useDispatch();
 
   const toggleSideCart = () => {
     dispatch(toggleCartSide(!toggleCart));
+  }
+
+  const toggleSearchIcons = () => {
+    dispatch(toggleSearch(!toggleSearchIcon));
   }
 
   const filteredProducts = (query: string) => {
@@ -31,6 +38,7 @@ const Header = () => {
   const toggle = () => {
     settoggleDropdown(!toggleDropdown);
   };
+
 
   const listOfCategories: Category[] = [
     { name: "electronics" },
@@ -42,6 +50,9 @@ const Header = () => {
   return (
     <>
       {toggleCart && <CartSidebar closeCart={toggleSideCart} />}
+      {toggleSearchIcon && <div className="search-container">
+        <TopSearchContainer />
+      </div>}
       <div className="header">
         <Link to="/" className="header-heading">
           <p>Thirst</p>
@@ -65,9 +76,9 @@ const Header = () => {
           </Link>
         </ul>
         <div className="header-icons">
-          <Link to="/search">
-            <img src={img3} alt="" width={25} height={25} />
-          </Link>
+
+          <img onClick={toggleSearchIcons} src={img3} alt="" width={25} height={25} />
+
           <Link to="/account/login">
             <img src={img5} alt="" width={25} height={25} />
           </Link>
