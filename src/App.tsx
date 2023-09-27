@@ -8,6 +8,7 @@ import Signin from "./Components/Signin/Signin";
 import Signup from "./Components/Signup/Signup";
 import Category from "./Components/Category/Category.tsx";
 import SingleProduct from "./Components/Products/SingleProduct/SingleProduct.tsx";
+import SearchProducts from "./Components/Products/SearchProduct/searchProducts.tsx";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Products />} />
+          <Route path="/search" element={ <SearchProducts /> }/>
           <Route path="/wishlist" element={<Wishlist />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/account/register" element={<Signup />} />

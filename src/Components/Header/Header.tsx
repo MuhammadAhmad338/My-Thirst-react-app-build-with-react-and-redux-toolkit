@@ -17,6 +17,7 @@ import TopSearchContainer from "../Search/TopSearch/TopSearch.tsx";
 import "./Header.css";
 
 const Header = () => {
+  
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
   const toggleSearchIcon = useSelector((item: RootState) => item.toggleSearch.searchTheToggle);
   const [toggleDropdown, settoggleDropdown] = useState(false);

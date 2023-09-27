@@ -15,6 +15,7 @@ const Category = () => {
     const wishlist = (item: Product) => {
         dispatch(addToCart(item as unknown as WishlistProduct));
     };
+    
     const cart = (item: Product) => {
         dispatch(addToWishlist(item as unknown as CartProduct));
     }

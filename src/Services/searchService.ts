@@ -16,9 +16,21 @@ export const search = createAsyncThunk(
     const response = await axios.get(
       `https://azurefirstapp1-c2g74jsita-uc.a.run.app/products/search?title=${query}`
     );
+    console.log(response.data);
     return response.data;
   }
 );
+
+export const topSearchBytitle = createAsyncThunk(
+  "topSearchByTitle",
+  async (query: string ) => {
+    const response = await axios.get(
+      `https://azurefirstapp1-c2g74jsita-uc.a.run.app/search?query=${query}`
+    );
+    console.log(response.data);
+    return response.data;
+  }
+)
 
 const searchSlice = createSlice({
   name: "search",
