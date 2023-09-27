@@ -1,48 +1,79 @@
-.products {
-    margin: 0 auto; /* Center the grid horizontally by setting left and right margins to "auto" */
-    max-width: 960px; 
+/* Default styles for larger screens (three columns) */
+.product-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
-    gap: 30px; 
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    background-color: #fff;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.product-description {
+    font-size: 1rem;
+    color: #555;
+}
+
+.product-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .product-price {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1.2rem;
+    font-size: 1.2rem;
+    margin: 10px 0;
 }
 
-.loading {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-.failed {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-button {
-    background-color: lightseagreen;
-    border: 1px solid black;
-    padding: 5px 10px;
+.wishlist-icon {
     cursor: pointer;
-    outline: none;
-    color: black;
 }
 
-@media screen and (max-width: 400px) {
-    .products {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+.add-to-cart-button {
+    background-color: lightseagreen;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+/* Media query for screens with a maximum width of 600px (typical for mobile devices) */
+@media only screen and (max-width: 600px) {
+    .product-list {
+        grid-template-columns: 1fr; /* Change to a single column for mobile screens */
+        gap: 10px; /* Adjust the gap for smaller screens */
+    }
+
+    .product-card {
+        /* Adjust styles for smaller screens */
+        padding: 15px;
+    }
+
+    .product-title {
+        font-size: 1.1rem;
+    }
+
+    .product-description {
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-size: 1rem;
+    }
+
+    .add-to-cart-button {
+        padding: 8px 16px;
     }
 }

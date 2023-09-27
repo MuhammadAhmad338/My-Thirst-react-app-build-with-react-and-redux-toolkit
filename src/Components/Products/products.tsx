@@ -47,26 +47,39 @@ const Products = () => {
   }
 
   return (
-    <div className="products">
-      {data.map((item) => (
-          <div onClick={() => componentB(item.id, item)} className="product-card" key={item.id}>
-            <div>{item.category}</div>
-            <img
-              src={item.image}
-              alt="Product Card Image"
-              height={300}
-              width={300}
-            />
-            <div>{item.title}</div>
-            <div>{item.description}</div>
-            <div className="product-price">
-              <div> $ {item.price}</div>
-              <img src={img} alt="" width={25} height={25} onClick={() => addtowishlistplease(item)} />
-              <button onClick={() => addtocart(item)}>ADD TO CART</button>
+      <div className="product-list">
+        {data.map((item) => (
+            <div
+                onClick={() => componentB(item.id, item)}
+                className="product-card"
+                key={item.id}
+            >
+              <img
+                  src={item.image}
+                  alt="Product Card Image"
+                  height={300}
+                  width={300}
+              />
+              <div className="product-title">{item.title}</div>
+              <div className="product-description">{item.description}</div>
+              <div className="product-details">
+                <div className="product-price">$ {item.price}</div>
+                <img
+                    src={img}
+                    alt="Add to Wishlist"
+                    width={25}
+                    height={25}
+                    onClick={() => addtowishlistplease(item)}
+                    className="wishlist-icon"
+                />
+                <button onClick={() => addtocart(item)} className="add-to-cart-button">
+                  ADD TO CART
+                </button>
+              </div>
             </div>
-          </div>
-      ))}
-    </div>
+        ))}
+      </div>
+
   );
 };
 

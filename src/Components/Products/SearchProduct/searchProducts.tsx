@@ -7,18 +7,17 @@ const SearchProducts = () => {
     const searchProducts = useSelector((item: RootState) => item.search.results);
 
     return (
-        <div>
-            <h1>Search Products</h1>
-            <ul>
-                {searchProducts.map((result) => (
-                    <li key={result.id}>
-                        <img src={result.image} alt="Product Image" width={120} height={120} />
-                        <p>{result.title}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    )
+               <div className="searched-products">
+                   {searchProducts.map((result) => (
+                       <div key={result.id} className="search-product-card">
+                           <img src={result.image} alt="Product Image" width={200} height={200} />
+                           <p>{result.title}</p>
+                           <p>{result.description}</p>
+                           <p>Dollars ${result.price}</p>
+                       </div>
+                   ))}
+               </div>
+    );
 }
 
 export default SearchProducts
