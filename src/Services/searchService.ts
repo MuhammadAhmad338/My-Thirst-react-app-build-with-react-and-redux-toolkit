@@ -22,8 +22,8 @@ export const search = createAsyncThunk(
 );
 
 export const topSearchBytitle = createAsyncThunk(
-  "topSearchByTitle",
-  async (query: string ) => {
+  "search/searchAsync",
+  async (query: string) => {
     const response = await axios.get(
       `https://azurefirstapp1-c2g74jsita-uc.a.run.app/search?query=${query}`
     );

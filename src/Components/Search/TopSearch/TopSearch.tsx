@@ -1,4 +1,4 @@
-import { ChangeEvent } from 'react';
+import { KeyboardEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleSearch } from '../../../Services/toggleSearchService';
 import { useAppDispatch } from '../../../hooks/hooks';
@@ -12,12 +12,14 @@ const TopSearchContainer = () => {
     const searchDispatch = useAppDispatch();
     const navigate = useNavigate();
 
-    const searchIt = (e: ChangeEvent<HTMLInputElement>) => {
-        const searchValue = e.target.value;
-        searchDispatch(topSearchBytitle(searchValue));
-        navigate("/search");
+    const searchIt = (e: KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === 'Enter') {
+            e.preventDefault(); // Prevent form submission
+            const searchValue = e.currentTarget.value;
+            searchDispatch(topSearchBytitle(searchValue));
+            navigate("/search");
+        }
     }
-
     const toggleSearchState = () => {
         dispatch(toggleSearch(false));
     }
@@ -31,7 +33,7 @@ const TopSearchContainer = () => {
                     className='top-search-bar'
                     type="text"
                     placeholder='Search'
-                    onChange={(e) => searchIt(e)}
+                    onKeyPress={(e) => searchIt(e)}
                 />
             </form>
             <div className='closeSearch' onClick={toggleSearchState}>X</div>

@@ -43,7 +43,7 @@ const Search = () => {
           Search
         </button>
       </div>
-      <div>{results && results.map((item) => <div className="search-dropdown" onClick={() => singleProductComponent(item.id, item)}>{item.title}</div>)}</div>
+      <div>{results && results.map((item) => <div key={item.id} className="search-dropdown" onClick={() => singleProductComponent(item.id, item)}>{item.title}</div>)}</div>
       <div>{!results && <div>Search Products</div>}</div>
     </React.Fragment>
   );
