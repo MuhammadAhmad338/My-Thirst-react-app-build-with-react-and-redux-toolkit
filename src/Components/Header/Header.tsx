@@ -6,21 +6,22 @@ import img3 from "../../assets/search.png";
 import img4 from "../../assets/shopping-bag.png";
 import img5 from "../../assets/user.png";
 import CartSidebar from "../Cart/CartSidebar/CartSidebar";
-import { useAppDispatch } from "../../hooks/hooks.ts";
-import { searchCategory } from "../../Services/categoryService.ts";
-import { Category } from "../../Interfaces/categoryInterface.ts";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Store/store.ts";
 import { toggleCartSide } from '../../Services/toggleService.ts';
 import { toggleSearch } from '../../Services/toggleSearchService.ts';
 import TopSearchContainer from "../Search/TopSearch/TopSearch.tsx";
+import { Category } from "../../Interfaces/categoryInterface.ts";
+import { useAppDispatch } from "../../hooks/hooks.ts";
+import { searchByCategory } from "../../Services/searchService.ts";
 import "./Header.css";
 
+
 const Header = () => {
-  
+
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
   const toggleSearchIcon = useSelector((item: RootState) => item.toggleSearch.searchTheToggle);
-  const [toggleDropdown, settoggleDropdown] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const categoryDispatch = useAppDispatch();
   const dispatch = useDispatch();
 
@@ -32,14 +33,14 @@ const Header = () => {
     dispatch(toggleSearch(!toggleSearchIcon));
   }
 
-  const filteredProducts = (query: string) => {
-    categoryDispatch(searchCategory(query));
-  };
+  const searchByCategories = (item: string ) => {
+    categoryDispatch(searchByCategory(item)); 
+  
+  }
 
-  const toggle = () => {
-    settoggleDropdown(!toggleDropdown);
-  };
-
+  // const filteredProducts = (query: string) => {
+  //   categoryDispatch(searchCategory(query));
+  // }
 
   const listOfCategories: Category[] = [
     { name: "electronics" },
@@ -63,18 +64,27 @@ const Header = () => {
           <Link to="/" className="header-links">
             Home
           </Link>
-          <li
-            className="header-links"
-            onMouseEnter={toggle}
-          >
-            Categories
-          </li>
+          <div className="dropdown">
+            <li onClick={() => setIsOpen(!isOpen)}>
+              Categories
+            </li>
+            {isOpen && (
+              <div className="dropdown-menu">
+                {
+                  listOfCategories.map((item) => (
+                      <Link key={item.name} to="/products/productByCategory" onClick={() => searchByCategories(item.name)} >{item.name.toUpperCase()}</Link>                  
+                  ))
+                }
+              </div>
+            )}
+          </div>
           <Link to="/" className="header-links">
             Contact
           </Link>
           <Link to="/" className="header-links">
             Services
           </Link>
+
         </ul>
         <div className="header-icons">
 
@@ -95,15 +105,6 @@ const Header = () => {
           />
         </div>
       </div>
-      {toggleDropdown &&
-        <div className="dropdown">
-          {listOfCategories.map((index) => (
-            <ul key={index.name}>
-              <Link to="/products/category" onClick={() => filteredProducts(index.name)}>{index.name}</Link>
-            </ul>
-          ))}
-        </div>
-      }
     </>
   );
 };

@@ -1,50 +1,75 @@
-
-
 .products {
-    margin: 0 auto; /* Center the grid horizontally by setting left and right margins to "auto" */
-    max-width: 960px; 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* Three columns in each row */
-    gap: 30px; 
+  display: flex;
+  margin: auto 0;
+  flex-direction: row; /* Change to column for mobile screens */
+  align-items: center;
+  justify-content: center;
+  /* Center horizontally */
+  min-height: 100vh;
+  gap: 7%;
 }
 
-.product-price {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 1.2rem;
+.product-card {
+  width: 100%; /* Take full width on mobile screens */
+  max-width: 400px; /* Adjust this value as needed */
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-.loading {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.product-details {
+  width: 100%; /* Take full width on mobile screens */
+  max-width: 400px; /* Adjust this value as needed */
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.failed {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.add-to-cart-button {
+  background-color: rgb(36, 238, 238);
+  padding: 12px;
+  color: black;
+  border-radius: 4px;
+  width: 90%;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add a transition for background color and box shadow */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
 }
 
-button {
-    background-color: lightseagreen;
-    border: 1px solid black;
-    padding: 5px 10px;
-    cursor: pointer;
-    outline: none;
-    color: black;
+.add-to-cart-button:hover {
+  background-color: greenyellow; /* Change the background color on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-@media screen and (max-width: 400px) {
-    .products {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+.add-to-wishlist-button {
+  background-color: lightblue;
+  padding: 12px;
+  color: black;
+  border-radius: 4px;
+  width: 90%;
+  cursor: pointer;
+  text-align: center;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add a transition for background color and box shadow */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0);
+}
+
+.add-to-wishlist-button:hover {
+  background-color: greenyellow; /* Change the background color on hover */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media query for small screens (adjust the breakpoint as needed) */
+@media (max-width: 768px) {
+  .products {
+    flex-direction: column; /* Change to column for small screens */
+    justify-content: center; /* Center vertically */
+  }
+
+  .product-card,
+  .product-details {
+    width: 100%; /* Take full width on small screens */
+    max-width: none; /* Reset max-width */
+  }
 }

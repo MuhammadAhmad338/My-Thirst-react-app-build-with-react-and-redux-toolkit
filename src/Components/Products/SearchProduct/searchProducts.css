@@ -1,72 +1,42 @@
-/* Use display: flex to create a flexible layout for the searched-products div */
 .searched-products {
-    /* Set the display property to grid */
     display: grid;
-    /* Set the grid-template-columns property to repeat three times 1fr (fractional unit) */
+    min-height: 100vh;
     grid-template-columns: repeat(3, 1fr);
 }
-
-/* Use margin: 10px to add some space around the search-product-card divs */
-.search-product-card {
-    margin: 10px;
-    border: 1px solid black;
-    background-color: lightblue;
-    padding: 12px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 6px;
-    box-shadow: 5px 5px 10px gray;
-}
-
 /* Use text-align: center to center the text inside the search-product-card divs */
 .search-product-card p {
     text-align: center;
 }
 
-/* Use display: flex to create a flexible layout for the searched-products div */
-.searched-products {
-    /* Set the display property to grid */
-    display: grid;
-    /* Set the grid-template-columns property to repeat three times 1fr (fractional unit) */
-    grid-template-columns: repeat(3, 1fr);
-}
-
-/* Use margin: 10px to add some space around the search-product-card divs */
 .search-product-card {
-    margin: 10px;
-    border: 1px solid black;
-    background-color: lightblue;
-    padding: 12px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-radius: 6px;
-    box-shadow: 5px 5px 10px gray;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add elevation effect */
+    transition: box-shadow 0.3s ease-in-out; /* Add a smooth transition */
+}
+/* On hover, increase the elevation effect */
+.search-product-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Use text-align: center to center the text inside the search-product-card divs */
-.search-product-card p {
-    text-align: center;
-}
-
 @media only screen and (max-width: 600px) {
-    .searched-products {
-        grid-template-columns: 1fr;
-        /* Add margin: auto to center the grid container */
-        margin: auto;
-        /* Add align-items: center and justify-items: center to center the grid items */
-        align-items: center;
-        justify-items: center;
-    }
-    .search-product-card {
-        /* Reduce the margin to 2px */
-        padding: 12px;
-        width: 70%;
-        border-radius: 3px;
-        text-align: center; /* Center-align text within the card */
-    }
+    
+        .searched-products {
+            display: flex;
+          flex-direction: column; /* Change to column for small screens */
+          align-items: center;
+     /* Center vertically */
+        }
+      
+        .search-product-card
+        {
+          width: 100%; /* Take full width on small screens */
+          max-width: none; /* Reset max-width */
+        }
+      
 }
 

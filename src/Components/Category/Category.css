@@ -1,0 +1,39 @@
+.category-products {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(3, 1fr);
+}
+/* Use text-align: center to center the text inside the search-product-card divs */
+.category-product-card p {
+  text-align: center;
+}
+
+.category-product-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add elevation effect */
+  transition: box-shadow 0.3s ease-in-out; /* Add a smooth transition */
+}
+/* On hover, increase the elevation effect */
+.category-product-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Use text-align: center to center the text inside the search-product-card divs */
+@media only screen and (max-width: 600px) {
+  .category-products {
+    display: flex;
+    flex-direction: column; /* Change to column for small screens */
+    align-items: center;
+    /* Center vertically */
+  }
+
+  .category-product-card {
+    width: 100%; /* Take full width on small screens */
+    max-width: none; /* Reset max-width */
+  }
+}

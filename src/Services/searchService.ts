@@ -32,6 +32,15 @@ export const topSearchBytitle = createAsyncThunk(
   }
 )
 
+export const searchByCategory = createAsyncThunk(
+  "search/searchAsync",
+  async (query: string) => {
+     const response  = await axios.get(`https://azurefirstapp1-c2g74jsita-uc.a.run.app/products/productByCategory?q=${query}`);
+     console.log(response.data);
+     return response.data;    
+  }
+)
+
 const searchSlice = createSlice({
   name: "search",
   initialState,

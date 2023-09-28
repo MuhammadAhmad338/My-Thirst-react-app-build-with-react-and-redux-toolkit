@@ -20,17 +20,20 @@
     border-left: none;
 }
 
+
 .search-dropdown {
     border: 1px solid black;
     font-weight: bold;
-    padding: 6px 4px;
-    width: 100%;
-    margin: 0 auto;
-    background-color: white;
+    padding: 12px 8px;
+    width: 100%; /* Set the width to 100% to take the full available width */
+    min-width: 100%; /* Ensure a minimum width of 100% */
+   margin: 0;
+    background-color:white;
     text-decoration: none;
+
 }
 
 .search-dropdown:hover {
-    background-color: rgb(238, 237, 237);
+    background-color: rgb(233, 233, 233);
     cursor: pointer;
 }

@@ -23,7 +23,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
           <Route path="/account/register" element={<Signup />} />
           <Route path="/account/login" element={<Signin />} />
-          <Route path="/products/category" element={<Category />}/>
+          <Route path="/products/productByCategory" element={<Category />}/>
           <Route path="/product/:id" element={<SingleProduct />}/>
         </Routes>
         <Footer />

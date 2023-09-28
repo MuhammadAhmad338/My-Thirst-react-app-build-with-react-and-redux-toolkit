@@ -4,9 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Store/store";
 import { fetchProducts } from "../../Services/getProducts";
 import { useAppDispatch } from "../../hooks/hooks";
-import { addToCart } from "../../Services/cartService";
 import { Product } from "../../Interfaces/Product";
-import { CartProduct } from "../../Interfaces/cartItems";
 import { addToWishlist } from "../../Services/wishlist";
 import { WishlistProduct } from "../../Interfaces/wishlistItems";
 import img from "../../assets/love.png";
@@ -34,10 +32,7 @@ const Products = () => {
     return <div className="failed">Failed... {error}</div>;
   }
 
-  const addtocart = (item: Product) => {
-    dispatch1(addToCart(item as unknown as CartProduct));
-  };
-
+  
   const addtowishlistplease = (item: Product) => {
     dispatch1(addToWishlist(item as unknown as WishlistProduct));
   }
@@ -72,9 +67,7 @@ const Products = () => {
                     onClick={() => addtowishlistplease(item)}
                     className="wishlist-icon"
                 />
-                <button onClick={() => addtocart(item)} className="add-to-cart-button">
-                  ADD TO CART
-                </button>
+              
               </div>
             </div>
         ))}

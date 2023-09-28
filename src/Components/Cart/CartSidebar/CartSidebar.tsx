@@ -33,9 +33,11 @@ const CartSidebar = ({ closeCart }: any) => {
     navigate(`/`);
   }
 
+  console.log(cartItems);
+
   return (
     <div className="cart-sideBar">
-      {cartItems.length > 1 && (
+      {cartItems.length >= 1 && (
         <React.Fragment>
           <div className="cart-header">
             <h2>Your Cart</h2>
@@ -53,7 +55,7 @@ const CartSidebar = ({ closeCart }: any) => {
           </div>
         </React.Fragment>
       )}
-      {cartItems.length > 1 ? (
+      {cartItems.length >= 1 ? (
         cartItems.map((item) => (
             <div key={item.id} className="cart-item-card">
               <div  className="cart-item">
