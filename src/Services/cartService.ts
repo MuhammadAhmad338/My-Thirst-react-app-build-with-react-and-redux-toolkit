@@ -18,27 +18,29 @@ const cart = createSlice({
       } else {
         state.items.push({ ...item, quantity: 1 });
       }
-      state.subtotal += item.price;
-
+      state.subtotal = state.items.reduce((total, item) => total + item.price * item.quantity, 0);
     },
     removeFromCart: (state, action: PayloadAction<number>) => {
       const productIdToRemove = action.payload;
-      const itemToRemove = state.items.find((item) => item.id === productIdToRemove);
+      const itemToRemove = state.items.find(
+        (item) => item.id === productIdToRemove
+      );
 
       if (itemToRemove) {
         if (itemToRemove.quantity === 1) {
           // If quantity is 1, remove the item from the cart
-          state.items = state.items.filter((item) => item.id !== productIdToRemove);
+          state.items = state.items.filter(
+            (item) => item.id !== productIdToRemove
+          );
         } else {
           // Decrease the quantity by 1 if it's greater than 1
           itemToRemove.quantity--;
         }
-        state.subtotal -= itemToRemove.price;
       }
+      state.subtotal = state.items.reduce((total, item) => total - item.price * item.quantity, 0);
     },
     clearCart: (state) => {
-      state.items = [],
-      state.subtotal = 0; // Clear subtotal when clearing the cart
+      (state.items = []), (state.subtotal = 0); // Clear subtotal when clearing the cart
     },
   },
 });

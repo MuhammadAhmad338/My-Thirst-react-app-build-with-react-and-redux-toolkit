@@ -13,7 +13,9 @@ import "./CartSidebar.css";
 
 const CartSidebar = ({ closeCart }: any) => {
   const cartItems = useSelector((state: RootState) => state.cart.items);
+  const cartSubtotal = useSelector((state: RootState) => state.cart.subtotal);
   const toggleIt = useSelector((state: RootState) => state.toggle.toggle);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -94,11 +96,11 @@ const CartSidebar = ({ closeCart }: any) => {
         </div>
       )}
       <div className="cart-subtotal">
-        {cartItems.length > 1 && (
+        {cartItems.length >= 1 && (
           <React.Fragment>
             <div className="cart-subtotal-price">
               <h2>SubTotal</h2>
-              <p>$ 12000</p>
+              <p>$ {cartSubtotal}</p>
             </div>
             <div className="checkout-button">Check Out</div>
           </React.Fragment>
