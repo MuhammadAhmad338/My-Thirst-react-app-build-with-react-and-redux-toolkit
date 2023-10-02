@@ -25,7 +25,7 @@ export const topSearchBytitle = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
     const response = await axios.get(
-      `https://azurefirstapp1-c2g74jsita-uc.a.run.app/search?query=${query}`
+      `https://webappoo8.onrender.com/search?query=${query}`
     );
     console.log(response.data);
     return response.data;
@@ -35,7 +35,7 @@ export const topSearchBytitle = createAsyncThunk(
 export const searchByCategory = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
-     const response  = await axios.get(`https://azurefirstapp1-c2g74jsita-uc.a.run.app/products/productByCategory?q=${query}`);
+     const response  = await axios.get(`https://webappoo8.onrender.com/products/productByCategory?q=${query}`);
      console.log(response.data);
      return response.data;    
   }

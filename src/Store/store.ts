@@ -9,6 +9,7 @@ import searchReducer from '../Services/searchService';
 import categoryReducer from '../Services/categoryService.ts';
 import toggleReducer from '../Services/toggleService.ts';
 import toggleSearchReducer from '../Services/toggleSearchService.ts';
+import ratingReducer from '../Services/ratingService.ts';
 
 const store = configureStore({
     reducer: {
@@ -21,7 +22,8 @@ const store = configureStore({
         search: searchReducer,
         category: categoryReducer,
         toggle: toggleReducer,
-        toggleSearch: toggleSearchReducer
+        toggleSearch: toggleSearchReducer,
+        rating: ratingReducer
     }
 });
 

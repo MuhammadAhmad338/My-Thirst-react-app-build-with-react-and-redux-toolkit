@@ -15,7 +15,7 @@ const config = {
     },
 };
 export const searchCategory = createAsyncThunk("products/category", async (query: string) => {
-   const response =  await axios.get(`https://azurefirstapp1-c2g74jsita-uc.a.run.app/products/category?category=${query}`,config);
+   const response =  await axios.get(`https://webappoo8.onrender.com/products/category?category=${query}`,config);
    return response.data;
 });
 
