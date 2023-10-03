@@ -2,8 +2,8 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { register } from "../../Services/account";
 import { useAppDispatch } from "../../hooks/hooks";
-import "./Signup.css";
 import { Link } from "react-router-dom";
+import "./Signup.css";
 
 const Signup = () => {
   const dispatch = useAppDispatch();

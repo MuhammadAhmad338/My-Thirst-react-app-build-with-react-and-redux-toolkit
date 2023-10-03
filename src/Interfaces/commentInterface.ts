@@ -4,9 +4,14 @@ export interface Comment {
     content: string;
     created_at: Date;
   }
+
+  export interface PostComment {
+    product_id: number;
+    content: string;
+  }
   
 export interface CommentState {
-    data: Comment[],
+    data: Comment[]| [],
     status: 'idle' | 'loading' | 'succeeded' | 'failed',
     error: string | null
 }

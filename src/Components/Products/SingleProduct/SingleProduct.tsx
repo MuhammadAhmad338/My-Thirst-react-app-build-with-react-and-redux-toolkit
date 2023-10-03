@@ -1,25 +1,21 @@
 import { useLocation } from "react-router-dom";
 import { Product } from "../../../Interfaces/Product";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addToWishlist } from "../../../Services/wishlist";
 import { addToCart } from "../../../Services/cartService";
 import { CartProduct } from "../../../Interfaces/cartItems";
 import Rating from "../../Rating/Rating";
 import { WishlistProduct } from "../../../Interfaces/wishlistItems";
 import Comments from "../../Comments/Comments";
-import { useEffect } from "react";
-import { useAppDispatch } from "../../../hooks/hooks";
-import { getCommentsByProducts } from "../../../Services/commentService";
-import { RootState } from "../../../Store/store";
+
 import "./SingleProduct.css";
 
 
 const SingleProduct = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-  const appDispatch = useAppDispatch();
 
-  const comments = useSelector((item: RootState) => item.comment.data);
+
 
   const wishlists = (item: Product) => {
     dispatch(addToWishlist(item as unknown as WishlistProduct));
@@ -29,10 +25,6 @@ const SingleProduct = () => {
     console.log(item);
     dispatch(addToCart(item as unknown as CartProduct));
   }
-
-  useEffect(() => {
-    appDispatch(getCommentsByProducts(location.state.item.id));
-  }, [appDispatch, location.state.item.id,]);
 
   return (
     <>
@@ -44,7 +36,6 @@ const SingleProduct = () => {
             height={300}
             width={300}
           />
-
         </div>
         <div className="product-details">
           <div>{location.state.item.title}</div>
@@ -61,7 +52,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-      <Comments comments={comments}/>
+      <Comments productId={location.state.item.id} />
     </>
   );
 }
