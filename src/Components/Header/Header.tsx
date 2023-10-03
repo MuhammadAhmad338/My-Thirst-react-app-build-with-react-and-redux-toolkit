@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import { Link } from "react-router-dom";
 import img1 from "../../assets/drop-of-paint.png";
 import img2 from "../../assets/love.png";
@@ -21,7 +21,7 @@ const Header = () => {
 
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
   const toggleSearchIcon = useSelector((item: RootState) => item.toggleSearch.searchTheToggle);
-  const [isOpen, setIsOpen] = useState(false);
+  
   const categoryDispatch = useAppDispatch();
   const dispatch = useDispatch();
 
@@ -33,9 +33,9 @@ const Header = () => {
     dispatch(toggleSearch(!toggleSearchIcon));
   }
 
-  const searchByCategories = (item: string ) => {
-    categoryDispatch(searchByCategory(item)); 
-  
+  const searchByCategories = (item: string) => {
+    categoryDispatch(searchByCategory(item));
+
   }
 
   // const filteredProducts = (query: string) => {
@@ -65,19 +65,20 @@ const Header = () => {
             Home
           </Link>
           <div className="dropdown">
-            <li onClick={() => setIsOpen(!isOpen)}>
-              Categories
-            </li>
-            {isOpen && (
-              <div className="dropdown-menu">
-                {
-                  listOfCategories.map((item) => (
-                      <Link key={item.name} to="/products/productByCategory" onClick={() => searchByCategories(item.name)} >{item.name.toUpperCase()}</Link>                  
-                  ))
-                }
-              </div>
-            )}
+            <li className="dropdown-toggle">Categories</li>
+            <div className="dropdown-menu">
+              {listOfCategories.map((item) => (
+                <Link
+                  key={item.name}
+                  to="/products/productByCategory"
+                  onClick={() => searchByCategories(item.name)}
+                >
+                  {item.name.toUpperCase()}
+                </Link>
+              ))}
+            </div>
           </div>
+
           <Link to="/" className="header-links">
             Contact
           </Link>

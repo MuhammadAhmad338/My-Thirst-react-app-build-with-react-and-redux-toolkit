@@ -14,7 +14,6 @@ const Comments = ({ productId }: { productId: number }): JSX.Element => {
 
     const appDispatch = useAppDispatch();
     const comments = useSelector((state: RootState) => state.comment.data);
-
     const [formData, setformData] = useState("");
 
     useEffect(() => {
@@ -38,8 +37,6 @@ const Comments = ({ productId }: { productId: number }): JSX.Element => {
         appDispatch(postComment(data));
         setformData('');
     }
-
-
 
     if (comments.length === 0) {
         return (

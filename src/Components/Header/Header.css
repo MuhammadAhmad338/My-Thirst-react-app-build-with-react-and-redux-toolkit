@@ -87,7 +87,6 @@ li:hover {
   }
 }
 
-
 @media (max-width: 768px) {
   .header {
     flex-direction: column; /* Stack elements vertically */
@@ -96,28 +95,34 @@ li:hover {
   }
 }
 
+/* Hide the dropdown menu by default */
+/* Hide the dropdown menu by default */
+.dropdown-menu {
+  display: none;
+}
 
-
-.dropdown {
-  position: relative;
-  display: inline-block;
+/* Show the dropdown menu when the user hovers over the parent li element */
+.dropdown-toggle:hover + .dropdown-menu {
+  display: block;
 }
 
 .dropdown-menu {
-  display: block;
   position: absolute;
   background-color: #f9f9f9;
   min-width: 180px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-
 .dropdown-menu a {
   color: black;
   padding: 12px 16px;
   text-decoration: none;
   display: block;
 }
-
 .dropdown-menu a:hover {
   background-color: #f1f1f1;
+}
+
+
+.dropdown-toggle:hover + .dropdown-menu, .dropdown-menu:hover {
+  display: block;
 }
