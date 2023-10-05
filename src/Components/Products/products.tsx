@@ -12,7 +12,6 @@ import img1 from "../../assets/1494.gif";
 import { useNavigate } from "react-router-dom";
 import "./products.css";
 
-
 const Products = () => {
   const dispatch = useAppDispatch();
   const dispatch1 = useDispatch();
@@ -32,7 +31,6 @@ const Products = () => {
   if (status === "failed") {
     return <div className="failed">Failed... {error}</div>;
   }
-
   
   const addtowishlistplease = (item: Product) => {
     dispatch1(addToWishlist(item as unknown as WishlistProduct));
@@ -67,13 +65,11 @@ const Products = () => {
                     height={25}
                     onClick={() => addtowishlistplease(item)}
                     className="wishlist-icon"
-                />
-              
+                />  
               </div>
             </div>
         ))}
       </div>
-
   );
 };
 
