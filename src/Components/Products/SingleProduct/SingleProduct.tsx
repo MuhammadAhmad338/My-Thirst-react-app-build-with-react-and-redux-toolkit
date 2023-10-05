@@ -7,6 +7,7 @@ import { CartProduct } from "../../../Interfaces/cartItems";
 import { WishlistProduct } from "../../../Interfaces/wishlistItems";
 import Comments from "../../Comments/Comments";
 import "./SingleProduct.css";
+import Rating from "../../Reviews/Reviews";
 
 const SingleProduct = () => {
   const location = useLocation();
@@ -47,6 +48,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
+      <Rating />
       <Comments productId={location.state.item.id} />
     </>
   );
