@@ -14,15 +14,17 @@ const config = {
   },
 };
 
-export const getReviews = createAsyncThunk("reviews/getReviews", async () => {
-  const response = await axios.get("", config);
+export const getReviews = createAsyncThunk("reviews/getReviews", async (query: string) => {
+  const response = await axios.get(`https://webappoo8.onrender.com/reviews?productId=${query}`, config);
+  console.log(response.data)
   return response.data;
 });
 
 export const postReviews = createAsyncThunk(
   "reviews/addReviews",
   async (data) => {
-    const response = await axios.post("", data, config);
+    const response = await axios.post("https://webappoo8.onrender.com/reviews/addReview", data, config);
+    console.log(response.data);
     return response.data;
   }
 );
