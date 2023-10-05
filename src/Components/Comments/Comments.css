@@ -1,6 +1,54 @@
-.no-comments {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+.nocomments {
+  margin: 0 auto;
+  width: 67%;
+  margin-bottom: 5%;
+}
+
+.nocomments-content {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.no-comment {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto 0;
+}
+
+.comments {
+  margin: 0 auto;
+  width: 67%;
+  margin-bottom: 5%;
+}
+
+.comment-content {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-comments {
+  display: flex;
+  background-color: white;
+  padding: 15px;
+  border-top: 1px solid lightgray;
+  border-bottom: 1px solid lightgray;
+  cursor: pointer;
+}
+
+.user-comments:hover {
+  background-color: rgb(245, 242, 242);
 }

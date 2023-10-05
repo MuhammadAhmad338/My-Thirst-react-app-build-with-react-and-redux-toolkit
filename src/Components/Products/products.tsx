@@ -8,7 +8,7 @@ import { Product } from "../../Interfaces/Product";
 import { addToWishlist } from "../../Services/wishlist";
 import { WishlistProduct } from "../../Interfaces/wishlistItems";
 import img from "../../assets/love.png";
-import img1 from "../../assets/CVyf.gif";
+import img1 from "../../assets/1494.gif";
 import { useNavigate } from "react-router-dom";
 import "./products.css";
 
@@ -26,7 +26,7 @@ const Products = () => {
   }, [dispatch]);
 
   if (status === "loading") {
-    return <div className="loading"><img src={img1} alt="Loading Gif" width={100} height={100} /></div>;
+    return <div className="loading"><img src={img1} alt="Loading Gif" width={65} height={65} /></div>;
   }
 
   if (status === "failed") {

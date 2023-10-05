@@ -3,10 +3,38 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 17px 25px;
-  background-color: lightseagreen;
+  padding: 9px 25px;
+  background-color: white;
   color: black;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  animation: color-change 5s infinite;
+}
+
+/* define the @keyframes rule */
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
+
+.header-image {
+  position:relative;
+  float:left;
+  width: 70px;
+  height: 50px;
+  
 }
 
 ul {

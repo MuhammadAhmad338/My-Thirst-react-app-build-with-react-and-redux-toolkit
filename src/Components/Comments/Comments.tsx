@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Comment } from '../../Interfaces/commentInterface';
 import { format } from 'date-fns';
 import { useAppDispatch } from '../../hooks/hooks';
@@ -9,12 +8,12 @@ import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from '../../Store/store';
 import './Comments.css';
 
-
 const Comments = ({ productId }: { productId: number }): JSX.Element => {
 
     const appDispatch = useAppDispatch();
     const comments = useSelector((state: RootState) => state.comment.data);
     const [formData, setformData] = useState("");
+    const [isOpen, setisOpen] = useState(false);
 
     useEffect(() => {
         getProducts();
@@ -26,6 +25,14 @@ const Comments = ({ productId }: { productId: number }): JSX.Element => {
 
     const addComment = (e: ChangeEvent<HTMLInputElement>) => {
         setformData(e.target.value);
+    }
+
+    const manageIsOpen = () => {
+        if (isOpen) {
+            setisOpen(false);
+        } else {
+            setisOpen(true);
+        }
     }
 
     const handleSubmit = (e: FormEvent) => {
@@ -40,48 +47,53 @@ const Comments = ({ productId }: { productId: number }): JSX.Element => {
 
     if (comments.length === 0) {
         return (
-            <>
-                <form onSubmit={handleSubmit}>
-                    <input
-                        type="text"
-                        name="content"
-                        value={formData}
-                        placeholder="Add a comment..."
-                        className="signup-input"
-                        onChange={addComment}
-                    />
-                    <button type="submit">Submit</button>
-                </form>
-                <div className='no-comments'>
-
-                    <h1>Comments</h1>
-                    <p>No Comments</p>
+            <div className='nocomments'>
+                <div className='nocomments-content'>
+                    <div className='user-comments' onClick={manageIsOpen}>Comments ({comments.length}) {isOpen ? "  -" : "  +"} </div>
+                    {
+                        isOpen &&
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="content"
+                                value={formData}
+                                placeholder="Add a comment..."
+                                className="signup-input"
+                                onChange={addComment}
+                            />
+                            <button type="submit">Submit</button>
+                        </form>
+                    }
                 </div>
-            </>
+            </div>
         );
     }
 
     return (
-        <div>
-            <h1>Comments</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    name="content"
-                    value={formData}
-                    placeholder="Add a comment..."
-                    className="signup-input"
-                    onChange={addComment}
-                />
-                <button type="submit">Submit</button>
-            </form>
-            {Array.isArray(comments) && comments.map((item: Comment) => (
-                <div key={item.commentid}>
-                    <p>{item.content}</p>
-                    <p>{item.commentid}</p>
-                    <p>{format(new Date(item.created_at), 'eeee h:mm a')}</p>
-                </div>
-            ))}
+        <div className="comments">
+            <div className='commnets-content'>
+                <div className='user-comments' onClick={manageIsOpen}>Comments ({comments.length}) {isOpen ? "  -" : "  +"} </div>
+                {
+                    isOpen && <>
+                        <form onSubmit={handleSubmit}>
+                            <input
+                                type="text"
+                                name="content"
+                                value={formData}
+                                placeholder="Add a comment..."
+                                className="signup-input"
+                                onChange={addComment}
+                            />
+                            <button type="submit">Submit</button>
+                        </form>
+                        {Array.isArray(comments) && comments.map((item: Comment) => (
+                            <div className='comment' key={item.commentid}>
+                                <p>{item.content}</p>
+                                <p>{format(new Date(item.created_at), 'eeee h:mm a')}</p>
+                            </div>
+                        ))}</>
+                }
+            </div>
 
         </div>
     );

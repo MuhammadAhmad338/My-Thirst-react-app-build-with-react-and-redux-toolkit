@@ -5,5 +5,26 @@ footer {
   padding: 20px 0;
   color: black;
   background-color: lightseagreen;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25), 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+  animation: color-change 5s infinite;
 }
+
+/* define the @keyframes rule */
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
+

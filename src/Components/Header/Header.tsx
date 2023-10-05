@@ -1,10 +1,9 @@
-
 import { Link } from "react-router-dom";
-import img1 from "../../assets/drop-of-paint.png";
 import img2 from "../../assets/love.png";
 import img3 from "../../assets/search.png";
 import img4 from "../../assets/shopping-bag.png";
 import img5 from "../../assets/user.png";
+import img6 from "../../assets/shoppingbackground.png";
 import CartSidebar from "../Cart/CartSidebar/CartSidebar";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Store/store.ts";
@@ -15,7 +14,6 @@ import { Category } from "../../Interfaces/categoryInterface.ts";
 import { useAppDispatch } from "../../hooks/hooks.ts";
 import { searchByCategory } from "../../Services/searchService.ts";
 import "./Header.css";
-
 
 const Header = () => {
 
@@ -35,7 +33,6 @@ const Header = () => {
 
   const searchByCategories = (item: string) => {
     categoryDispatch(searchByCategory(item));
-
   }
 
   // const filteredProducts = (query: string) => {
@@ -57,15 +54,15 @@ const Header = () => {
       </div>}
       <div className="header">
         <Link to="/" className="header-heading">
-          <p>Thirst</p>
-          <img src={img1} alt="" height={25} width={25} />
+        
+          <img src={img6} alt="" height={50} width={150} className="header-image" />
         </Link>
         <ul>
           <Link to="/" className="header-links">
-            Home
+            HOME
           </Link>
           <div className="dropdown">
-            <li className="dropdown-toggle">Categories</li>
+            <li className="dropdown-toggle">CATEGORIES</li>
             <div className="dropdown-menu">
               {listOfCategories.map((item) => (
                 <Link
@@ -79,11 +76,11 @@ const Header = () => {
             </div>
           </div>
 
-          <Link to="/" className="header-links">
-            Contact
+          <Link to="/contact" className="header-links">
+            CONTACT
           </Link>
-          <Link to="/" className="header-links">
-            Services
+          <Link to="/about" className="header-links">
+            ABOUT US
           </Link>
 
         </ul>
