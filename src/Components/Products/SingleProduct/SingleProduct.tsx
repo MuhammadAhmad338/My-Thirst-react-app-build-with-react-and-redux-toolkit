@@ -4,18 +4,13 @@ import { useDispatch } from "react-redux";
 import { addToWishlist } from "../../../Services/wishlist";
 import { addToCart } from "../../../Services/cartService";
 import { CartProduct } from "../../../Interfaces/cartItems";
-import Rating from "../../Rating/Rating";
 import { WishlistProduct } from "../../../Interfaces/wishlistItems";
 import Comments from "../../Comments/Comments";
-
 import "./SingleProduct.css";
-
 
 const SingleProduct = () => {
   const location = useLocation();
   const dispatch = useDispatch();
-
-
 
   const wishlists = (item: Product) => {
     dispatch(addToWishlist(item as unknown as WishlistProduct));
@@ -43,7 +38,7 @@ const SingleProduct = () => {
           <div className="product-price">
             <div> $ {location.state.item.price}</div>
           </div>
-          <Rating />
+   
           <div className="add-to-cart-button" onClick={() => cart(location.state.item)}>
             ADD TO CART
           </div>

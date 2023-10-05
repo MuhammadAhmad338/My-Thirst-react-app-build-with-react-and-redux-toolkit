@@ -19,7 +19,9 @@ const Header = () => {
 
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
   const toggleSearchIcon = useSelector((item: RootState) => item.toggleSearch.searchTheToggle);
-  
+  const cartCount = useSelector((item: RootState) => item.cart.items.length);
+  const wishlistCount = useSelector((item: RootState) => item.wishlist.items.length);
+
   const categoryDispatch = useAppDispatch();
   const dispatch = useDispatch();
 
@@ -93,14 +95,10 @@ const Header = () => {
           </Link>
           <Link to="/wishlist">
             <img src={img2} alt="" width={30} height={30} />
+            <span className="wishlist-count">{wishlistCount}</span>
           </Link>
-          <img
-            src={img4}
-            alt=""
-            onClick={toggleSideCart}
-            width={30}
-            height={30}
-          />
+          <img src={img4} alt="" onClick={toggleSideCart} width={30} height={30} className="cart-icon" />
+           <span className="cart-count">{cartCount}</span>
         </div>
       </div>
     </>
