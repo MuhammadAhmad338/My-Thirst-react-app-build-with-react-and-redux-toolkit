@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { PostReview, ReviewState, Reviews } from "../Interfaces/ratingInterface";
 import axios from "axios";
-import { ReviewState } from "../Interfaces/ratingInterface";
 
 const initialState: ReviewState = {
   data: [],
@@ -16,11 +16,11 @@ const config = {
 
 export const getReviews = createAsyncThunk("reviews/getReviews", async (query: string) => {
   const response = await axios.get(`https://webappoo8.onrender.com/reviews?productId=${query}`, config);
-  console.log(response.data)
+  console.log(response.data);
   return response.data;
 });
 
-export const postReviews = createAsyncThunk(
+export const postReviews = createAsyncThunk<Reviews, PostReview>(
   "reviews/addReviews",
   async (data) => {
     const response = await axios.post("https://webappoo8.onrender.com/reviews/addReview", data, config);

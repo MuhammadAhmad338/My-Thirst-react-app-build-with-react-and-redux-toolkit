@@ -5,7 +5,7 @@ export interface ReviewState {
 }
 
 export interface Reviews {
-  id: number;
+  reviewid: number;
   productid: number;
   email: string;
   name: string;
@@ -13,4 +13,14 @@ export interface Reviews {
   rating: number;
   content: string;
   created_at: Date;
+}
+
+
+export interface PostReview {
+  productid: number,
+       email: string,
+       name: string,
+       rating: number,
+       reviewtitle: string,
+       content: string
 }

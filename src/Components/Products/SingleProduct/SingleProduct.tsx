@@ -6,8 +6,8 @@ import { addToCart } from "../../../Services/cartService";
 import { CartProduct } from "../../../Interfaces/cartItems";
 import { WishlistProduct } from "../../../Interfaces/wishlistItems";
 import Comments from "../../Comments/Comments";
+import Reviews from "../../Reviews/Reviews";
 import "./SingleProduct.css";
-import Rating from "../../Reviews/Reviews";
 
 const SingleProduct = () => {
   const location = useLocation();
@@ -39,7 +39,6 @@ const SingleProduct = () => {
           <div className="product-price">
             <div> $ {location.state.item.price}</div>
           </div>
-   
           <div className="add-to-cart-button" onClick={() => cart(location.state.item)}>
             ADD TO CART
           </div>
@@ -48,7 +47,7 @@ const SingleProduct = () => {
           </div>
         </div>
       </div>
-      <Rating />
+      <Reviews productid={location.state.item.id} />
       <Comments productId={location.state.item.id} />
     </>
   );
