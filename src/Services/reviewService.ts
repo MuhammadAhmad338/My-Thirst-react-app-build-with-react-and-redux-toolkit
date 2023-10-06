@@ -14,7 +14,8 @@ const config = {
   },
 };
 
-export const getReviews = createAsyncThunk("reviews/getReviews", async (query: string) => {
+export const getReviews = createAsyncThunk("reviews/getReviews", async (query: number) => {
+  console.log(query);
   const response = await axios.get(`https://webappoo8.onrender.com/reviews?productId=${query}`, config);
   console.log(response.data);
   return response.data;

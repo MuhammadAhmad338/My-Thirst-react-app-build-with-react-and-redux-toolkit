@@ -18,3 +18,93 @@ button {
 .off {
   color: #ccc;
 }
+
+.writeReview {
+  background-color: rgb(104, 104, 241); 
+  color: white;
+  border: 1px solid gray;
+  padding: 15px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  max-width: 20%;
+  
+  transition: background-color 1s ease-in-out, border-color 2s ease-in-out;
+}
+
+.writeReview:hover {
+  background-color: white; 
+  border-color: blue;
+  color: blue;
+}
+
+
+.star {
+ height: 100px;
+}
+
+.reviews {
+  margin: 0 auto;
+  width: 67%;
+  margin-bottom: 5%;
+}
+
+.reviews-content {
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.review-content {
+  display: flex;
+  gap: 8px;
+  width: 500px;
+  align-items: start;
+  flex-direction: column;
+  animation: fadeIn 1s ease-out;
+}
+
+input {
+  outline: none;
+}
+
+textarea {
+  padding: 12px;
+  width: 100%;
+  outline: none;
+}
+label {
+  color: gray;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
+
+.submit-review {
+  background-color: rgb(104, 104, 241); 
+  color: white;
+  border: 1px solid gray;
+  padding: 15px 15px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 180px;
+  
+  /* Add transition for smooth color change */
+  transition: background-color 1s ease-in-out, border-color 2s ease-in-out;
+}
+
+.submit-review:hover {
+  background-color: white; 
+  border-color: blue;
+  color: blue;
+}
+
+.reviews-div {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+}

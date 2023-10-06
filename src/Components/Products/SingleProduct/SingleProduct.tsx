@@ -5,7 +5,6 @@ import { addToWishlist } from "../../../Services/wishlist";
 import { addToCart } from "../../../Services/cartService";
 import { CartProduct } from "../../../Interfaces/cartItems";
 import { WishlistProduct } from "../../../Interfaces/wishlistItems";
-import Comments from "../../Comments/Comments";
 import Reviews from "../../Reviews/Reviews";
 import "./SingleProduct.css";
 
@@ -48,7 +47,6 @@ const SingleProduct = () => {
         </div>
       </div>
       <Reviews productid={location.state.item.id} />
-      <Comments productId={location.state.item.id} />
     </>
   );
 }
