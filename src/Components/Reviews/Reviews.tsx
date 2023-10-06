@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { getReviews, postReviews } from '../../Services/reviewService'
 import { useSelector } from 'react-redux'
@@ -26,12 +27,18 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
       productid,
       email,
       name,
-      rating,
+      rating: 1,
       reviewtitle,
       content
     }
- console.log(data.rating)
+    console.log(data.rating)
     dispatch(postReviews(data));
+
+    setEmail("");
+    setName("");
+    setRating(0);
+    setreviewtitle("");
+    setContent("");
 
     if (
       name.trim().length === 0 ||
@@ -48,8 +55,8 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
   }
 
   useEffect(() => {
-       dispatch(getReviews(productid));
-  }, [dispatch, productid, reviews.length]);
+    dispatch(getReviews(productid));
+  }, [reviews.length]);
 
   const manageIsOpen = () => {
     if (isOpen) {
@@ -63,76 +70,80 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
 
   const reviewIsOpen = () => {
     if (!reviewOpen) {
-      setReviewOpen(true)
+      setReviewOpen(true);
     }
   }
 
   return (
     <div className='reviews'>
       <div className='reviews-content'>
-        <div onClick={manageIsOpen}>{isOpen ? "Reviews - " : "Reviews +"}</div>
-        {!isOpen || !reviewOpen && <button className='writeReview' onClick={reviewIsOpen}>Write a Review</button>}
-        {
-          <div className='reviews-div'> {reviewOpen && <div className='review-content'> <label htmlFor="">Name</label>
-            <input type="text"
-              name="name"
-              id=""
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder='Enter your name' />
-            <label htmlFor="">Email</label>
-            <input type="text"
-              name="email"
-              id=""
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder='john.smith@gmail.com' />
-            <label htmlFor="">Rating</label>
+        <div className='post-review'>
+          <div className='review-heading' onClick={manageIsOpen}>{isOpen ? "Reviews - " : "Reviews +"}</div>
+          {!isOpen || !reviewOpen && <button className='writeReview' onClick={reviewIsOpen}>Write a Review</button>}
+          {
+            <div className='reviews-div'> {reviewOpen && <div className='review-content'>
+              <label htmlFor="">Name</label>
+              <input type="text"
+                name="name"
+                id=""
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                placeholder='Enter your name' />
+              <label htmlFor="">Email</label>
+              <input type="text"
+                name="email"
+                id=""
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder='john.smith@gmail.com' />
+              <label htmlFor="">Rating</label>
 
-            <div className="star-rating">
-              {[...Array(5)].map(( index) => {
-                index += 1;
-                return (
-                  <button
-                    type="button"
-                    key={index}
-                    className={index <= (hover || rating) ? "on" : "off"}
-                    onClick={() => setRating(index)}
-                    onMouseEnter={() => setHover(index)}
-                    onMouseLeave={() => setHover(rating)}
-                  >
-                    <span className="star">&#9733;</span>
-                  </button>
-                );
-              })}
+              <div className="star-rating">
+                {[...Array(5)].map((index) => {
+                  index += 1;
+                  return (
+                    <button
+                      type="button"
+                      key={index}
+                      className={index <= (hover || rating) ? "on" : "off"}
+                      onClick={() => setRating(index)}
+                      onMouseEnter={() => setHover(index)}
+                      onMouseLeave={() => setHover(rating)}
+                    >
+                      <span className="star">&#9733;</span>
+                    </button>
+                  );
+                })}
+              </div>
+              <label htmlFor="">Review title</label>
+              <input type="text"
+                name='reviewtitle'
+                value={reviewtitle}
+                onChange={(e) => setreviewtitle(e.target.value)}
+                placeholder='Give your review a title' />
+              <label htmlFor="">Body of Review</label>
+              <textarea name="" id=""
+              value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder='Write your comments here' cols={30} rows={10}>
+              </textarea>
+              <button className='submit-review' onClick={handleSubmit}>Submit Review</button>
+            </div>}
             </div>
-            <label htmlFor="">Review title</label>
-            <input type="text"
-              name='reviewtitle'
-              value={reviewtitle}
-              onChange={(e) => setreviewtitle(e.target.value)}
-              placeholder='Give your review a title' />
-            <label htmlFor="">Body of Review</label>
-            <textarea name="" id=""
-              onChange={(e) => setContent(e.target.value)}
-              placeholder='Write your comments here' cols={30} rows={10}>
-            </textarea>
-            <button className='submit-review' onClick={handleSubmit}>Submit Review</button>
-          </div>}
-            <div className='previous-reviews'>
-           {
+          }
+        </div>
+        <div className='previous-reviews'>
+          <p className='previous-reviews-heading'>Previous Reviews</p>
+          {
             reviews.map((item) => (
               <>
-              <p>{item.rating}</p>
-              <p>{item.reviewtitle}</p>
-              <p>{item.content}</p>
+                <p>{item.rating}</p>
+                <p>{item.reviewtitle}</p>
+                <p>{item.content}</p>
               </>
             ))
-           }
-            </div>
-          </div>
-
-        }
+          }
+        </div>
       </div>
     </div>
   )
