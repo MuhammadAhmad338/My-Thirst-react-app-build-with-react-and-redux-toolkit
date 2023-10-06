@@ -49,7 +49,7 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
 
   useEffect(() => {
        dispatch(getReviews(productid));
-  }, [reviews.length]);
+  }, [dispatch, productid, reviews.length]);
 
   const manageIsOpen = () => {
     if (isOpen) {
@@ -90,7 +90,7 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
             <label htmlFor="">Rating</label>
 
             <div className="star-rating">
-              {[...Array(5)].map((star, index) => {
+              {[...Array(5)].map(( index) => {
                 index += 1;
                 return (
                   <button
