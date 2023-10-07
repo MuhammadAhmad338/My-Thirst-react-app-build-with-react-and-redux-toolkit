@@ -90,7 +90,7 @@ const CartSidebar = ({ closeCart }: any) => {
             />
           </div>
           <div className="empty-cart-body">
-            <h1>Your Cart is Empty</h1>
+           <p className="empty-cart-text">Your cart is empty</p>
             <button onClick={continueShopping}>Continue Shopping</button>
           </div>
         </div>
