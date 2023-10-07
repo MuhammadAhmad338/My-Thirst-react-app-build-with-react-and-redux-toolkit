@@ -14,7 +14,7 @@ export const search = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
     const response = await axios.get(
-      `https://webappoo8.onrender.com/products/search?title=${query}`
+      `https://webappoo8.onrender.com/api/products/search?title=${query}`
     );
     console.log(response.data);
     return response.data;
@@ -25,7 +25,7 @@ export const topSearchBytitle = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
     const response = await axios.get(
-      `https://webappoo8.onrender.com/search?query=${query}`
+      `https://webappoo8.onrender.com/api/users/search?query=${query}`
     );
     console.log(response.data);
     return response.data;
@@ -35,7 +35,7 @@ export const topSearchBytitle = createAsyncThunk(
 export const searchByCategory = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
-     const response  = await axios.get(`https://webappoo8.onrender.com/products/productByCategory?q=${query}`);
+     const response  = await axios.get(`https://webappoo8.onrender.com/api/products/productByCategory?q=${query}`);
      console.log(response.data);
      return response.data;    
   }

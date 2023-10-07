@@ -16,7 +16,7 @@ const config = {
 
 export const register = createAsyncThunk<User, SignUpState>(
     'auth/register', async (userData) => {
-      const response = await axios.post("https://webappoo8.onrender.com/account/register", userData, config);
+      const response = await axios.post("https://webappoo8.onrender.com/api/users/register", userData, config);
       console.log(response.data)
       return response.data;
     }
@@ -24,7 +24,7 @@ export const register = createAsyncThunk<User, SignUpState>(
 
 export const login = createAsyncThunk<User, SignInState>(
     'auth/login', async (credentials) => {
-      const response = await axios.post("https://webappoo8.onrender.com/account/login", credentials, config);
+      const response = await axios.post("https://webappoo8.onrender.com/api/users/login", credentials, config);
       console.log(response.data)
       return response.data;
     }

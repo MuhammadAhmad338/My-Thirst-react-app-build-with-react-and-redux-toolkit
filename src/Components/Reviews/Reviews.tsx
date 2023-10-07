@@ -27,7 +27,7 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
       productid,
       email,
       name,
-      rating: 1,
+      rating,
       reviewtitle,
       content
     }

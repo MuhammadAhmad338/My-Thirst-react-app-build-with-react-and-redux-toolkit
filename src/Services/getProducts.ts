@@ -20,8 +20,9 @@ export const fetchProducts = createAsyncThunk<Product[], void>(
   "api/fetchProducts",
   async () => {
     const response = await axios.get<Product[]>(
-      "https://webappoo8.onrender.com/products/allProducts", config
+      "https://webappoo8.onrender.com/api/products/allProducts", config
     );
+    console.log(response.data);
     return response.data;
   }
 );
