@@ -12,7 +12,8 @@ const initialState: ApiState = {
 
 const config = {
   headers: {
-    'Content-Type': 'application/json', // Set the content type you expect from the server
+    'Content-Type': 'application/json', // Set the content type you expect from the server,
+    'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZXNoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTY3MTM4NzgsImV4cCI6MTY5NjcxNzQ3OH0.ziCYoAdQVzpafiZlzrxnU6vto9BBdFU9QxzlTF2nApc'
   },
 };
 
