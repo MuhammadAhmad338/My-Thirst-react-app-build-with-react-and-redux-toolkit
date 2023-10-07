@@ -16,7 +16,7 @@ const config = {
 
 export const getReviews = createAsyncThunk("reviews/getReviews", async (query: number) => {
   console.log(query);
-  const response = await axios.get(`https://webappoo8.onrender.com/reviews?productId=${query}`, config);
+  const response = await axios.get(`https://webappoo8.onrender.com/api/reviews?productId=${query}`, config);
   console.log(response.data);
   return response.data;
 });
@@ -25,7 +25,7 @@ export const postReviews = createAsyncThunk<Reviews, PostReview>(
   "reviews/addReviews",
   async (data) => {
     console.log(data);
-    const response = await axios.post("https://webappoo8.onrender.com/reviews/addReviews", data, config);
+    const response = await axios.post("https://webappoo8.onrender.com/api/reviews/addReviews", data, config);
     console.log(response.data);
     return response.data;
   }
