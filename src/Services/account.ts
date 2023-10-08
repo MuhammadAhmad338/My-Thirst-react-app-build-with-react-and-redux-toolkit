@@ -14,10 +14,10 @@ const initialState: AccountApiState = {
 };
 
 const config = {
-    headers: {
-      'Content-Type': 'application/json', // Set the content type you expect from the server,
-    },
-  };
+  headers: {
+    "Content-Type": "application/json", // Set the content type you expect from the server,
+  },
+};
 
 export const register = createAsyncThunk<User, SignUpState>(
   "auth/register",
@@ -28,10 +28,14 @@ export const register = createAsyncThunk<User, SignUpState>(
       config
     );
     console.log(response.data);
-    localStorage.setItem("token", response.data.token);
-    alert(`User created Successfully!`);
-     // Reload the web app
-    window.location.reload();
+    // Store the token in local storage
+    if (response.data.token !== undefined) {
+      localStorage.setItem("token", response.data.token);
+      alert(`User created Successfully!`);
+      window.location.reload();
+    } else {
+      alert("Please check your fields!");
+    }
 
     return response.data;
   }
@@ -47,10 +51,14 @@ export const login = createAsyncThunk<User, SignInState>(
     );
     console.log(response.data);
     // Store the token in local storage
-    localStorage.setItem("token", response.data.token);
-    alert(`User is LoggedIn!`);
-     // Reload the web app
-    window.location.reload();
+    if (response.data.token !== undefined) {
+      localStorage.setItem("token", response.data.token);
+      alert(`User is LoggedIn!`);
+      window.location.reload();
+    } else {
+      alert("Invalid Credentials");
+    }
+    // Reload the web app
 
     return response.data;
   }
