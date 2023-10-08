@@ -8,40 +8,59 @@
 }
 
 .signup-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
 }
 
 .signup-input {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    outline: none;
-    border: 1px solid black;
-    max-width: 500px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: 1px solid black;
+  max-width: 500px;
 }
 
 h1 {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .create-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
 }
 
-button {
-    padding: 15px 30px;
-    outline: none;
-    border: 1px solid black;
+.create-button button {
+  padding: 15px 30px;
+  border: 1px solid black;
+  animation: color-change 5s infinite;
+}
+
+/* define the @keyframes rule */
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
 }

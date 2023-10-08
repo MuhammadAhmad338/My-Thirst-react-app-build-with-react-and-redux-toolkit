@@ -13,15 +13,16 @@ const initialState: ApiState = {
 const config = {
   headers: {
     'Content-Type': 'application/json', // Set the content type you expect from the server,
-    'authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImF5ZXNoYUBnbWFpbC5jb20iLCJpYXQiOjE2OTY3MTM4NzgsImV4cCI6MTY5NjcxNzQ3OH0.ziCYoAdQVzpafiZlzrxnU6vto9BBdFU9QxzlTF2nApc'
+    'authorization': `${localStorage.getItem('token')}`
   },
 };
+
 
 export const fetchProducts = createAsyncThunk<Product[], void>(
   "api/fetchProducts",
   async () => {
     const response = await axios.get<Product[]>(
-      "https://webappoo8.onrender.com/api/products/allProducts", config
+      "https://thirstapp-c2g74jsita-uc.a.run.app/api/products/allProducts", config
     );
     console.log(response.data);
     return response.data;

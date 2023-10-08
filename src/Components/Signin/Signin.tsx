@@ -15,7 +15,18 @@ const Signin = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (
+      form.email.trim().length === 0 ||
+      form.password.trim().length === 0
+
+    ) {
+      // Alert the user to fill in the required fields
+      alert("Please fill in the required fields");
+      // Return early and do not send the data
+      return;
+    }
     dispatch(login(form));
+
   };
 
   return (

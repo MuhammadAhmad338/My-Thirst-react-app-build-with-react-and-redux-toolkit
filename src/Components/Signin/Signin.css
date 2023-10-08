@@ -30,7 +30,28 @@ input {
 
 .signin-button {
     padding: 12px 30px;
-}
+    border: 1px solid black;
+    animation: color-change 5s infinite;
+  }
+  
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
+  }
 
 .create-account {
     text-decoration: none;

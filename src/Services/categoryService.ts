@@ -11,11 +11,12 @@ const initialState: CategoryInterface = {
 
 const config = {
     headers: {
-        'Content-Type': 'application/json', // Set the content type you expect from the server
+        'Content-Type': 'application/json', // Set the content type you expect from the server,
+        'authorization': `${localStorage.getItem('token')}` // Set the content type you expect from the server
     },
 };
 export const searchCategory = createAsyncThunk("products/category", async (query: string) => {
-   const response =  await axios.get(`https://webappoo8.onrender.com/api/products/category?category=${query}`,config);
+   const response =  await axios.get(`https://thirstapp-c2g74jsita-uc.a.run.app/api/products/category?category=${query}`, config);
    return response.data;
 });
 

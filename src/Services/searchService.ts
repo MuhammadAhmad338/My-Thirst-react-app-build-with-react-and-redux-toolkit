@@ -10,11 +10,19 @@ const initialState: SearchState = {
   error: null,
 };
 
+const config = {
+  headers: {
+    'Content-Type': 'application/json', // Set the content type you expect from the server,
+    'authorization': `${localStorage.getItem('token')}`
+  },
+};
+
+
 export const search = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
     const response = await axios.get(
-      `https://webappoo8.onrender.com/api/products/search?title=${query}`
+      `https://thirstapp-c2g74jsita-uc.a.run.app/api/products/search?title=${query}`, config
     );
     console.log(response.data);
     return response.data;
@@ -25,7 +33,7 @@ export const topSearchBytitle = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
     const response = await axios.get(
-      `https://webappoo8.onrender.com/api/users/search?query=${query}`
+      `https://thirstapp-c2g74jsita-uc.a.run.app/api/users/search?query=${query}`, config
     );
     console.log(response.data);
     return response.data;
@@ -35,7 +43,7 @@ export const topSearchBytitle = createAsyncThunk(
 export const searchByCategory = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
-     const response  = await axios.get(`https://webappoo8.onrender.com/api/products/productByCategory?q=${query}`);
+     const response  = await axios.get(`https://thirstapp-c2g74jsita-uc.a.run.app/api/products/productByCategory?q=${query}`, config);
      console.log(response.data);
      return response.data;    
   }

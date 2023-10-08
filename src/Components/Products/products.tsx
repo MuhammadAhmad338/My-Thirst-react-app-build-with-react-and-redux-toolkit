@@ -6,11 +6,11 @@ import { fetchProducts } from "../../Services/getProducts";
 import { useAppDispatch } from "../../hooks/hooks";
 import { Product } from "../../Interfaces/Product";
 import img1 from "../../assets/1494.gif";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./products.css";
 
 const Products = () => {
-  
+
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const data = useSelector((state: RootState) => state.api.data);
@@ -26,7 +26,12 @@ const Products = () => {
   }
 
   if (status === "failed") {
-    return <div className="failed">Failed... {error}</div>;
+    return <div className="failed">
+      <p>Please login or resgister to see the products {error}</p>
+      <Link to="/account/login" className="failed-link">
+        Create Account
+      </Link>
+    </div>;
   }
 
   const componentB = (id: number, item: Product) => {

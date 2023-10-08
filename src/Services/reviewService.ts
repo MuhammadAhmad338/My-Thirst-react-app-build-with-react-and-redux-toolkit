@@ -10,7 +10,8 @@ const initialState: ReviewState = {
 
 const config = {
   headers: {
-    "Content-Type": "application/json", // Set the content type you expect from the server
+    'Content-Type': 'application/json', // Set the content type you expect from the server,
+    'authorization': `${localStorage.getItem('token')}` // Set the content type you expect from the server
   },
 };
 

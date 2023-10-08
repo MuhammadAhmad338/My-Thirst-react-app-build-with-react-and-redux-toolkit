@@ -16,7 +16,20 @@ const Signup = () => {
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
+    if (
+      formData.firstName.trim().length === 0 ||
+      formData.lastName.trim().length === 0 ||
+      formData.email.trim().length === 0 ||
+      formData.password.trim().length === 0
+    ) {
+      // Alert the user to fill in the required fields
+      alert("Please fill in the required fields");
+      // Return early and do not send the data
+      return;
+    }
     dispatch(register(formData));
+
+    setformData({ firstName: "", lastName: "", email: "", password: "" });
   };
 
   return (
@@ -59,7 +72,7 @@ const Signup = () => {
       </form>
 
       <div className="create-button">
-        <button onClick={handleSubmit}>Create</button>
+        <button onClick={handleSubmit} >Create</button>
         <Link to="/account/login" className="create-account">
           Sign In
         </Link>

@@ -70,6 +70,41 @@
   min-height: 100vh;
 }
 
+.failed {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.failed-link  {
+  color: black;
+  border: 1px solid black;
+  padding: 8px;
+  text-decoration: none;
+  animation: color-change 5s infinite;
+}
+
+/* define the @keyframes rule */
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
 /* Media query for screens with a maximum width of 600px (typical for mobile devices) */
 @media only screen and (max-width: 600px) {
   .product-list {

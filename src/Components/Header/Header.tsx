@@ -41,6 +41,11 @@ const Header = () => {
   //   categoryDispatch(searchCategory(query));
   // }
 
+  const signOut = () => {
+    localStorage.removeItem('token');
+        window.location.reload();
+  }
+
   const listOfCategories: Category[] = [
     { name: "electronics" },
     { name: "men's clothing" },
@@ -56,7 +61,6 @@ const Header = () => {
       </div>}
       <div className="header">
         <Link to="/" className="header-heading">
-        
           <img src={img6} alt="" height={50} width={150} className="header-image" />
         </Link>
         <ul>
@@ -84,12 +88,11 @@ const Header = () => {
           <Link to="/about" className="header-links">
             ABOUT US
           </Link>
+          <div onClick={signOut}>Sign Out</div>
 
         </ul>
         <div className="header-icons">
-
           <img onClick={toggleSearchIcons} src={img3} alt="" width={25} height={25} />
-
           <Link to="/account/login">
             <img src={img5} alt="" width={25} height={25} />
           </Link>
