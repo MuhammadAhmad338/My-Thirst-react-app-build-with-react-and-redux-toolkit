@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { ApiState, Product } from "../Interfaces/Product";
+import { ApiState, Product } from "../Interfaces/interfaces";
 import { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
@@ -17,7 +17,6 @@ const config = {
   },
 };
 
-
 export const fetchProducts = createAsyncThunk<Product[], void>(
   "api/fetchProducts",
   async () => {
@@ -25,6 +24,7 @@ export const fetchProducts = createAsyncThunk<Product[], void>(
       "https://thirstapp-c2g74jsita-uc.a.run.app/api/products/allProducts", config
     );
     console.log(response.data);
+    localStorage.setItem("token", response.data.token);
     return response.data;
   }
 );

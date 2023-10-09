@@ -4,7 +4,7 @@ import {
   SignUpState,
   SignInState,
   User,
-} from "../Interfaces/accountInterface";
+} from "../Interfaces/interfaces";
 import axios from "axios";
 
 const initialState: AccountApiState = {
@@ -22,22 +22,16 @@ const config = {
 export const register = createAsyncThunk<User, SignUpState>(
   "auth/register",
   async (userData) => {
+       
     const response = await axios.post(
       "https://thirstapp-c2g74jsita-uc.a.run.app/api/users/register",
       userData,
       config
     );
     console.log(response.data);
-    // Store the token in local storage
-    if (response.data.token !== undefined) {
-      localStorage.setItem("token", response.data.token);
-      alert(`User created Successfully!`);
-      window.location.reload();
-    } else {
-      alert("Please check your fields!");
-    }
+    // Store the token in local storag
 
-    return response.data;
+    return response.data.token;
   }
 );
 
@@ -51,16 +45,8 @@ export const login = createAsyncThunk<User, SignInState>(
     );
     console.log(response.data);
     // Store the token in local storage
-    if (response.data.token !== undefined) {
-      localStorage.setItem("token", response.data.token);
-      alert(`User is LoggedIn!`);
-      window.location.reload();
-    } else {
-      alert("Invalid Credentials");
-    }
-    // Reload the web app
-
-    return response.data;
+    localStorage.setItem("token", response.data.token);
+    return response.data.token;
   }
 );
 

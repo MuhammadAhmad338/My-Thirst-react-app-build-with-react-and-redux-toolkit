@@ -19,7 +19,7 @@ const Cart = () => {
   return (
     <div className="cart">
       {!cartItems.length && (
-        <div className="empty-cart">No Items in the cart!</div>
+        <div className="empty-cart">No Items in the Cart!</div>
       )}
       {cartItems.map((item) => (
         <React.Fragment key={item.id}>

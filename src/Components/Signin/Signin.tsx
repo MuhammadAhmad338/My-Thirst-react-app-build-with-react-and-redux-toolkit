@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/hooks";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { login } from "../../Services/account";
@@ -13,20 +13,23 @@ const Signin = () => {
     setForm({ ...form, [name]: value });
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    if (
-      form.email.trim().length === 0 ||
+    if (form.email.trim().length === 0 ||
       form.password.trim().length === 0
-
     ) {
-      // Alert the user to fill in the required fields
       alert("Please fill in the required fields");
-      // Return early and do not send the data
       return;
     }
-    dispatch(login(form));
 
+    const response = await dispatch(login(form));
+    if (response !== undefined) {
+      alert(`User is LoggedIn!`);
+      window.location.reload();
+      return redirect("/");
+    } else {
+      alert("Invalid Credentials");
+    }
   };
 
   return (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { Link } from "react-router-dom";
 import img2 from "../../assets/love.png";
 import img3 from "../../assets/search.png";
@@ -10,11 +11,10 @@ import { RootState } from "../../Store/store.ts";
 import { toggleCartSide } from '../../Services/toggleService.ts';
 import { toggleSearch } from '../../Services/toggleSearchService.ts';
 import TopSearchContainer from "../Search/TopSearch/TopSearch.tsx";
-import { Category } from "../../Interfaces/categoryInterface.ts";
+import { Category } from "../../Interfaces/interfaces.ts";
 import { useAppDispatch } from "../../hooks/hooks.ts";
 import { searchByCategory } from "../../Services/searchService.ts";
 import "./Header.css";
-
 const Header = () => {
 
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
@@ -37,15 +37,6 @@ const Header = () => {
     categoryDispatch(searchByCategory(item));
   }
 
-  // const filteredProducts = (query: string) => {
-  //   categoryDispatch(searchCategory(query));
-  // }
-
-  const signOut = () => {
-    localStorage.removeItem('token');
-        window.location.reload();
-  }
-
   const listOfCategories: Category[] = [
     { name: "electronics" },
     { name: "men's clothing" },
@@ -60,13 +51,17 @@ const Header = () => {
         <TopSearchContainer />
       </div>}
       <div className="header">
+
         <Link to="/" className="header-heading">
           <img src={img6} alt="" height={50} width={150} className="header-image" />
         </Link>
+
         <ul>
+
           <Link to="/" className="header-links">
             HOME
           </Link>
+
           <div className="dropdown">
             <li className="dropdown-toggle">CATEGORIES</li>
             <div className="dropdown-menu">
@@ -88,7 +83,7 @@ const Header = () => {
           <Link to="/about" className="header-links">
             ABOUT US
           </Link>
-          <div onClick={signOut}>Sign Out</div>
+         
 
         </ul>
         <div className="header-icons">

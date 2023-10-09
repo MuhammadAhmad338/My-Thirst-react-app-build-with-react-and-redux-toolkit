@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../Store/store";
 import { fetchProducts } from "../../Services/getProducts";
 import { useAppDispatch } from "../../hooks/hooks";
-import { Product } from "../../Interfaces/Product";
+import { Product } from "../../Interfaces/interfaces";
 import img1 from "../../assets/1494.gif";
 import { Link, useNavigate } from "react-router-dom";
 import "./products.css";

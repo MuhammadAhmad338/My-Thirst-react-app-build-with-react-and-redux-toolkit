@@ -2,7 +2,7 @@ import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux/es/exports";
 import { useSelector } from "react-redux/es/exports";
 import { RootState } from "../Store/store";
-import { increment, changeName, decrement} from "../Services/changeNameService";
+import { increment, decrement, changeName} from "../Services/changeNameService";
 
 const ChangeName = () => {
   const dispatch = useDispatch();

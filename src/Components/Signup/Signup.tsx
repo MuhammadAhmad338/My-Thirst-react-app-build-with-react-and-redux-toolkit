@@ -2,8 +2,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { register } from "../../Services/account";
 import { useAppDispatch } from "../../hooks/hooks";
-import { Link } from "react-router-dom";
+import { Link, redirect } from "react-router-dom";
 import "./Signup.css";
+import { signOut } from "../../Utils/helper";
 
 const Signup = () => {
   const dispatch = useAppDispatch();
@@ -27,7 +28,13 @@ const Signup = () => {
       // Return early and do not send the data
       return;
     }
-    dispatch(register(formData));
+    const response = dispatch(register(formData));
+    if (response !== undefined) {
+      alert(`User is LoggedIN!`);
+      return redirect("/");
+    } else {
+      alert("Invalid Credentials");
+    }
 
     setformData({ firstName: "", lastName: "", email: "", password: "" });
   };
@@ -77,6 +84,7 @@ const Signup = () => {
           Sign In
         </Link>
       </div>
+      <button onClick={signOut}>SignOut</button>
 
     </div>
   );
