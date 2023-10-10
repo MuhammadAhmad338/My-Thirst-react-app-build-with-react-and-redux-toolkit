@@ -1,10 +1,8 @@
 import { useLocation } from "react-router-dom";
-import { Product } from "../../../Interfaces/Product";
 import { useDispatch } from "react-redux";
 import { addToWishlist } from "../../../Services/wishlist";
 import { addToCart } from "../../../Services/cartService";
-import { CartProduct } from "../../../Interfaces/cartItems";
-import { WishlistProduct } from "../../../Interfaces/wishlistItems";
+import { CartProduct, WishlistProduct, Product } from "../../../Interfaces/interfaces";
 import Reviews from "../../Reviews/Reviews";
 import "./SingleProduct.css";
 
