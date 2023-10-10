@@ -6,7 +6,7 @@ import { RootState } from "../../../Store/store";
 import closeIcon from "../../../assets/close.png";
 import cancel from "../../../assets/cancel.png";
 import {addToCart, removeFromCart} from "../../../Services/cartService";
-import { CartProduct } from "../../../Interfaces/cartItems.ts";
+import { CartProduct } from "../../../Interfaces/interfaces.ts";
 import { toggleCartSide  } from "../../../Services/toggleService.ts";
 import { useNavigate } from "react-router-dom";
 import "./CartSidebar.css";

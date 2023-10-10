@@ -5,7 +5,7 @@ import { search, updateQuery } from "../../Services/searchService";
 import { RootState } from "../../Store/store";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import { Product } from "../../Interfaces/Product";
+import { Product } from "../../Interfaces/interfaces";
 import "./Search.css";
 
 const Search = () => {

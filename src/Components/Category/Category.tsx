@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { RootState } from "../../Store/store.ts";
-import { Product } from "../../Interfaces/Product.ts";
+import { Product } from "../../Interfaces/interfaces.ts";
 import { useNavigate } from "react-router-dom";
 import { addToWishlist } from "../../Services/wishlist.ts";
-import { WishlistProduct } from "../../Interfaces/wishlistItems.ts";
+import { WishlistProduct } from "../../Interfaces/interfaces.ts";
 import img from "../../assets/love.png";
 
 const Category = () => {

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Comment } from '../../Interfaces/commentInterface';
+import { Comment } from '../../Interfaces/interfaces';
 import { format } from 'date-fns';
 import { useAppDispatch } from '../../hooks/hooks';
 import { postComment, getCommentsByProducts } from '../../Services/commentService';
