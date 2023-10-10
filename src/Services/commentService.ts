@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { CommentState, PostComment } from "../Interfaces/commentInterface";
-import axios from "axios";
+import { CommentState, PostComment } from "../Interfaces/interfaces";
+import { instance, userconfig } from "../api/instance";
 
 const initialState: CommentState = {
   data: [],
@@ -8,23 +8,15 @@ const initialState: CommentState = {
   error: null,
 };
 
-const config = {
-  headers: {
-    "Content-Type": "application/json",
-  },
-};
-
 // Modify your async thunk to accept productId and content
 export const postComment = createAsyncThunk<Comment, PostComment>(
   "products/comments",
   async (data) => {
-    const response = await axios.post(
-      "https://webappoo8.onrender.com/comments/addComment",
+    const response = await instance.post(
+      "comments/addComment",
       data,
-      config
+      userconfig
     );
-    console.log(response.data);
-   
     return response.data;
   }
 );
@@ -32,12 +24,10 @@ export const postComment = createAsyncThunk<Comment, PostComment>(
 export const getCommentsByProducts = createAsyncThunk(
   "products/comments",
   async (query: number) => {
-    const response = await axios.get(
-      `https://webappoo8.onrender.com/comments?productId=${query}`,
-      config
+    const response = await instance.get(
+      `comments?productId=${query}`,
+      userconfig
     );
-    console.log(response.data);
-    console.log('Helloadasdas');
     return response.data;
   }
 );
@@ -45,22 +35,19 @@ export const getCommentsByProducts = createAsyncThunk(
 const commentSlice = createSlice({
   name: "comments",
   initialState,
-  reducers: {
-    
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       .addCase(getCommentsByProducts.pending, (state) => {
         state.status = "loading";
       })
       .addCase(getCommentsByProducts.fulfilled, (state, action) => {
-        state.data = action.payload
+        state.data = action.payload;
       })
       .addCase(getCommentsByProducts.rejected, (state) => {
         state.error = "Failed";
       });
   },
 });
-
 
 export default commentSlice.reducer;

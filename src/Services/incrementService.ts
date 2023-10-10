@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { IncrementAge } from "../Interfaces/IncreaseCount";
+import { IncrementAge } from "../Interfaces/interfaces";
 
 const initialState: IncrementAge = {
     age: 12

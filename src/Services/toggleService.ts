@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Toggle } from "../Interfaces/toggleInterface";
+import { Toggle } from "../Interfaces/interfaces";
 
 const initialState: Toggle = {
     toggle: false

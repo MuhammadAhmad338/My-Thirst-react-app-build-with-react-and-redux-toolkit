@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import { PostReview, ReviewState, Reviews } from "../Interfaces/ratingInterface";
-import axios from "axios";
+import { PostReview, ReviewState, Reviews } from "../Interfaces/interfaces";
+import { instance, productconfig } from "../api/instance";
 
 const initialState: ReviewState = {
   data: [],
@@ -8,16 +8,9 @@ const initialState: ReviewState = {
   error: null,
 };
 
-const config = {
-  headers: {
-    'Content-Type': 'application/json', // Set the content type you expect from the server,
-    'authorization': `${localStorage.getItem('token')}` // Set the content type you expect from the server
-  },
-};
-
 export const getReviews = createAsyncThunk("reviews/getReviews", async (query: number) => {
   console.log(query);
-  const response = await axios.get(`https://webappoo8.onrender.com/api/reviews?productId=${query}`, config);
+  const response = await instance.get(`reviews?productId=${query}`, productconfig);
   console.log(response.data);
   return response.data;
 });
@@ -26,7 +19,7 @@ export const postReviews = createAsyncThunk<Reviews, PostReview>(
   "reviews/addReviews",
   async (data) => {
     console.log(data);
-    const response = await axios.post("https://webappoo8.onrender.com/api/reviews/addReviews", data, config);
+    const response = await instance.post("reviews/addReviews", data, productconfig);
     console.log(response.data);
     return response.data;
   }

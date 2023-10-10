@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { WishlistProduct, WishlistState } from "../Interfaces/wishlistItems";
+import { WishlistProduct, WishlistState } from "../Interfaces/interfaces";
 
 const initialState: WishlistState = {
   items: [],

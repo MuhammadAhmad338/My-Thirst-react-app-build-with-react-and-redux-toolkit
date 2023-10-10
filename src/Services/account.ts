@@ -5,7 +5,7 @@ import {
   SignInState,
   User,
 } from "../Interfaces/interfaces";
-import axios from "axios";
+import { instance, userconfig } from "../api/instance";
 
 const initialState: AccountApiState = {
   user: null,
@@ -13,24 +13,14 @@ const initialState: AccountApiState = {
   error: null,
 };
 
-const config = {
-  headers: {
-    "Content-Type": "application/json", // Set the content type you expect from the server,
-  },
-};
-
 export const register = createAsyncThunk<User, SignUpState>(
   "auth/register",
   async (userData) => {
-       
-    const response = await axios.post(
-      "https://thirstapp-c2g74jsita-uc.a.run.app/api/users/register",
+    const response = await instance.post(
+      "users/register",
       userData,
-      config
+      userconfig
     );
-    console.log(response.data);
-    // Store the token in local storag
-
     return response.data.token;
   }
 );
@@ -38,12 +28,11 @@ export const register = createAsyncThunk<User, SignUpState>(
 export const login = createAsyncThunk<User, SignInState>(
   "auth/login",
   async (credentials) => {
-    const response = await axios.post(
-      "https://thirstapp-c2g74jsita-uc.a.run.app/api/users/login",
+    const response = await instance.post(
+      "users/login",
       credentials,
-      config
+      userconfig
     );
-    console.log(response.data);
     // Store the token in local storage
     localStorage.setItem("token", response.data.token);
     return response.data.token;

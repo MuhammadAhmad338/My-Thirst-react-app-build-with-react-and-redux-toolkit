@@ -1,22 +1,16 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
-import {CategoryInterface} from "../Interfaces/categoryInterface.ts";
-import axios from "axios";
+import {CategoryInterface} from "../Interfaces/interfaces.ts";
+import { instance, productconfig } from "../api/instance.ts";
 
 const initialState: CategoryInterface = {
     query: "",
     results: [],
     status: "idle",
     error: null
-}
+} 
 
-const config = {
-    headers: {
-        'Content-Type': 'application/json', // Set the content type you expect from the server,
-        'authorization': `${localStorage.getItem('token')}` // Set the content type you expect from the server
-    },
-};
 export const searchCategory = createAsyncThunk("products/category", async (query: string) => {
-   const response =  await axios.get(`https://thirstapp-c2g74jsita-uc.a.run.app/api/products/category?category=${query}`, config);
+   const response =  await instance.get(`products/category?category=${query}`, productconfig);
    return response.data;
 });
 

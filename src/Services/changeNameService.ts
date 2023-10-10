@@ -1,4 +1,4 @@
-import { ChangeName } from "../Interfaces/ChangeName";
+import { ChangeName } from "../Interfaces/interfaces";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const initialState: ChangeName = {

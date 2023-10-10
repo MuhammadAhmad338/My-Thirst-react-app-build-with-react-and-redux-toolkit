@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { SearchState } from "../Interfaces/searchInterface";
-import axios from "axios";
+import { SearchState } from "../Interfaces/interfaces";
+import { instance, productconfig } from "../api/instance";
 
 const initialState: SearchState = {
   query: "",
@@ -10,21 +10,13 @@ const initialState: SearchState = {
   error: null,
 };
 
-const config = {
-  headers: {
-    'Content-Type': 'application/json', // Set the content type you expect from the server,
-    'authorization': `${localStorage.getItem('token')}`
-  },
-};
-
-
 export const search = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
-    const response = await axios.get(
-      `https://thirstapp-c2g74jsita-uc.a.run.app/api/products/search?title=${query}`, config
+    const response = await instance.get(
+      `products/search?title=${query}`,
+      productconfig
     );
-    console.log(response.data);
     return response.data;
   }
 );
@@ -32,22 +24,24 @@ export const search = createAsyncThunk(
 export const topSearchBytitle = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
-    const response = await axios.get(
-      `https://thirstapp-c2g74jsita-uc.a.run.app/api/users/search?query=${query}`, config
+    const response = await instance.get(
+      `users/search?query=${query}`,
+      productconfig
     );
-    console.log(response.data);
     return response.data;
   }
-)
+);
 
 export const searchByCategory = createAsyncThunk(
   "search/searchAsync",
   async (query: string) => {
-     const response  = await axios.get(`https://thirstapp-c2g74jsita-uc.a.run.app/api/products/productByCategory?q=${query}`, config);
-     console.log(response.data);
-     return response.data;    
+    const response = await instance.get(
+      `products/productByCategory?q=${query}`,
+      productconfig
+    );
+    return response.data;
   }
-)
+);
 
 const searchSlice = createSlice({
   name: "search",

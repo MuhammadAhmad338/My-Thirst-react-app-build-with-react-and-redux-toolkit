@@ -2,7 +2,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { ApiState, Product } from "../Interfaces/interfaces";
 import { PayloadAction } from "@reduxjs/toolkit";
-import axios from "axios";
+import { instance, productconfig } from "../api/instance";
 
 const initialState: ApiState = {
   data: [],
@@ -10,21 +10,10 @@ const initialState: ApiState = {
   error: null,
 };
 
-const config = {
-  headers: {
-    'Content-Type': 'application/json', // Set the content type you expect from the server,
-    'authorization': `${localStorage.getItem('token')}`
-  },
-};
-
 export const fetchProducts = createAsyncThunk<Product[], void>(
   "api/fetchProducts",
   async () => {
-    const response = await axios.get<Product[]>(
-      "https://thirstapp-c2g74jsita-uc.a.run.app/api/products/allProducts", config
-    );
-    console.log(response.data);
-    localStorage.setItem("token", response.data.token);
+    const response = await instance.get<Product[]>("products/allProducts", productconfig);
     return response.data;
   }
 );
