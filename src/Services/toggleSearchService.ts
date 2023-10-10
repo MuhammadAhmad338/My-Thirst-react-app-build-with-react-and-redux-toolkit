@@ -1,6 +1,6 @@
 
 import { createSlice } from "@reduxjs/toolkit";
-import { SearchToggleInterface } from "../Interfaces/searchInterface";
+import { SearchToggleInterface } from "../Interfaces/interfaces";
 
 const initialState: SearchToggleInterface = {
     searchTheToggle: false
