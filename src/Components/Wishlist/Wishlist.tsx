@@ -17,7 +17,7 @@ const Wishlist = () => {
 
   const navigateToSingleProduct = (id: number, item: WishlistProduct) => {
     navigate(`/product/${id}`, { state: { item } });
-} 
+  }
 
   return (
     <div className="wishlist">
@@ -27,21 +27,21 @@ const Wishlist = () => {
       </div>
       {!items.length && <div className="wishlist-noproduct">No Products!</div>}
       <div className="products-wishlist-grid">
-      {items.map((item) => (
-        <div className="product-card" key={item.id} onClick={ () => navigateToSingleProduct(item.id, item)}>
-          <img
-            src={item.image}
-            alt="Product Card Image"
-            height={300}
-            width={300}
-          />
-          <div>{item.title}</div>
-          <div className="product-price">
-            <div> $ {item.price}</div>
-            <button onClick={() => removefromwishlist(item.id)}>X</button>
+        {items.map((item) => (
+          <div className="product-card" key={item.id} onClick={() => navigateToSingleProduct(item.id, item)}>
+            <img
+              src={item.image}
+              alt="Product Card Image"
+              height={300}
+              width={300}
+            />
+            <div>{item.title}</div>
+            <div className="product-price">
+              <div> $ {item.price}</div>
+              <button onClick={() => removefromwishlist(item.id)}>X</button>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
       </div>
     </div>
   );

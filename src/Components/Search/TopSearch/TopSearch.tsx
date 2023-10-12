@@ -18,8 +18,10 @@ const TopSearchContainer = () => {
             const searchValue = e.currentTarget.value;
             searchDispatch(topSearchBytitle(searchValue));
             navigate("/search");
+            dispatch(toggleSearch(false));
         }
     }
+
     const toggleSearchState = () => {
         dispatch(toggleSearch(false));
     }
@@ -27,8 +29,7 @@ const TopSearchContainer = () => {
     return (
         <div className='top-search'>
             <p>Thirst Search</p>
-            <form action=" 
-            ">
+            <form action="">
                 <input
                     className='top-search-bar'
                     type="text"

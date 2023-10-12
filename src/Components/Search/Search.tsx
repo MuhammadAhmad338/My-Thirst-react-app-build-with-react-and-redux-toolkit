@@ -1,52 +1,35 @@
-import { ChangeEvent } from "react";
-import { useAppDispatch } from "../../hooks/hooks";
-import { useDispatch, useSelector } from "react-redux";
-import { search, updateQuery } from "../../Services/searchService";
 import { RootState } from "../../Store/store";
 import { useNavigate } from "react-router-dom";
-import React from "react";
 import { Product } from "../../Interfaces/interfaces";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 import "./Search.css";
 
 const Search = () => {
-  const dispatch = useDispatch();
-  const searchDispatch = useAppDispatch();
+
   const navigate = useNavigate();
-  const query = useSelector((state: RootState) => state.search.query);
   const results = useSelector((state: RootState) => state.search.results);
 
-  const handleChangeAndSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const updatedQuery = e.target.value;
-    searchDispatch(search(updatedQuery));
-  };
-
-  const handleSearchClick = () => {
-    dispatch(updateQuery(query));
-  };
-
-
-  const singleProductComponent = (id: number, item: Product) => {
+  const componentB = (id: number, item: Product) => {
     navigate(`/product/${id}`, { state: { item } });
   }
 
   return (
-    <React.Fragment>
-      <div className="search">
-        <input
-          type="text"
-          name="search"
-          onChange={handleChangeAndSearch}
-          className="searchInput"
-          placeholder="Search Item"
-        />
-        <button className="search-button" onClick={handleSearchClick}>
-          Search
-        </button>
-      </div>
-      <div>
-      {results && results.map((item) => <div key={item.id} className="search-dropdown" onClick={() => singleProductComponent(item.id, item)}>{item.title}</div>)}<div>{!results && <div>Search Products</div>}</div>
-      </div>
-    </React.Fragment>
+    <div className="search-product-list">
+      {results.map((item) => (
+        <div
+          onClick={() => componentB(item.id, item)}
+          className="search-product-card"
+          key={item.id}
+        >
+          <img
+            src={item.image}
+            alt="Product Card Image"
+          />
+          <div className="search-product-title">{item.title}</div>
+          <div className="search-product-price">$ {item.price}</div>
+        </div>
+      ))}
+    </div>
   );
 };
 
