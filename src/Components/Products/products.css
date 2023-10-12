@@ -19,6 +19,7 @@
   border: 1px solid black;
   font-family: arial;
   cursor: pointer;
+  padding: 4%;
 }
 
 .product-card img {

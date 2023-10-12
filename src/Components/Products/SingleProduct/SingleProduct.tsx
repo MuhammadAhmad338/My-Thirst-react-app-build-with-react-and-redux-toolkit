@@ -15,14 +15,13 @@ const SingleProduct = () => {
   }
 
   const cart = (item: Product) => {
-    console.log(item);
     dispatch(addToCart(item as unknown as CartProduct));
   }
 
   return (
     <>
       <div className="products">
-        <div className="product-card">
+        <div className="single-product-card">
           <img
             src={location.state.item.image}
             alt="Product Card Image"

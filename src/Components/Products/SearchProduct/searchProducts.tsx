@@ -12,7 +12,6 @@ const SearchProducts = () => {
                        <div key={result.id} className="search-product-card">
                            <img src={result.image} alt="Product Image" width={200} height={200} />
                            <p>{result.title}</p>
-                           <p>{result.description}</p>
                            <p>Dollars ${result.price}</p>
                        </div>
                    ))}

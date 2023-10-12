@@ -35,8 +35,6 @@ const CartSidebar = ({ closeCart }: any) => {
     navigate(`/`);
   }
 
-  console.log(cartItems);
-
   return (
     <div className="cart-sideBar">
       {cartItems.length >= 1 && (
