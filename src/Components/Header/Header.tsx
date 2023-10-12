@@ -68,7 +68,7 @@ const Header = () => {
               {listOfCategories.map((item) => (
                 <Link
                   key={item.name}
-                  to="/products/productByCategory"
+                  to="products/productByCategory"
                   onClick={() => searchByCategories(item.name)}
                 >
                   {item.name.toUpperCase()}
