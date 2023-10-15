@@ -1,0 +1,14 @@
+.our-story {
+    font-size: 0.95em; /* Adjust the font size for better readability */
+    line-height: 1.5; /* Adjust the line height for better vertical spacing */
+    text-align: center; /* Center the text horizontally */
+    color: var(--primary-color);
+    max-width: 800px; /* Set a max-width to control text width and keep it readable */
+    margin: 0 auto; /* Center the element within its parent container horizontally */
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}

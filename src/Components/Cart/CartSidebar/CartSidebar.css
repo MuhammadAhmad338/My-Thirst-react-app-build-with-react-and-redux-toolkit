@@ -85,6 +85,9 @@ button:active {
 
 .cart-item-card {
   padding: 10px 12px;
+  margin: 10px 8px;
+  border: 1px solid black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .cart-item {
@@ -171,8 +174,8 @@ button:active {
 
 .cart-subtotal {
   border-top: 1px solid lightgray;
-  position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .cart-item-increase {

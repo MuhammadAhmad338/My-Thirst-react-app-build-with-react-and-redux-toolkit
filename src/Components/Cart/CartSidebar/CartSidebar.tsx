@@ -59,7 +59,7 @@ const CartSidebar = ({ closeCart }: any) => {
         cartItems.map((item) => (
             <div key={item.id} className="cart-item-card">
               <div  className="cart-item">
-                <img src={item.image} alt="" width={100} height={100} />
+                <img src={item.image} alt="" width={150} height={100} />
                 <div className="cartItem-info">
                   <p>{item.title}</p>
                   <p>$ {item.price}</p>

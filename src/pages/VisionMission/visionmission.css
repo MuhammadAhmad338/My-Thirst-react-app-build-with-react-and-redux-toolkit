@@ -1,0 +1,41 @@
+.vision-mission {
+  margin: 0 auto;
+  display: flex;
+  width: 700px;
+  flex-direction: column;
+  gap: 50px;
+  min-height: 100vh;
+  padding: 40px 10px;
+}
+
+.vision-mission-heading {
+  font-size: 1.3em;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+.vision,
+.mission {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+.vision-heading,
+.mission-heading {
+  font-size: 1.2em;
+  color: var(--primary-color);
+}
+
+.vision-content,
+.mission-content {
+  font-size: 0.95em; /* Adjust the font size for better readability */
+  line-height: 1.5; /* Adjust the line height for better vertical spacing */
+  text-align: center; /* Center the text horizontally */
+  color: var(--primary-color);
+  max-width: 1000px; /* Set a max-width to control text width and keep it readable */
+  margin: 0 auto; /* Center the element within its parent container horizontally */
+  padding: 20px;
+}

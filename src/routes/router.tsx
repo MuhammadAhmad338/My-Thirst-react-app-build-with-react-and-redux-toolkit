@@ -12,6 +12,8 @@ import SingleProduct from "../Components/Products/SingleProduct/SingleProduct";
 import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import Signin from "../Components/Signin/Signin";
+import VisionMission from "../pages/VisionMission/visionmission";
+import OurStory from "../pages/OurStory/outStory";
 
 export const routes = createBrowserRouter([
   {
@@ -35,6 +37,17 @@ export const routes = createBrowserRouter([
       </>
     ),
     errorElement: <Error />
+  },
+   {
+    path: "/pages/our-story",
+    element: (
+      <>
+        <Header /> {/* Add Header */}
+        <OurStory />
+        <Footer /> {/* Add Footer */}
+      </>
+    ),
+    errorElement: <Error />,
   },
   {
     path: "search",
@@ -124,5 +137,16 @@ export const routes = createBrowserRouter([
       </>
     ),
     errorElement: <Error />
+  },
+  {
+    path: "/pages/our-mission",
+    element: (
+      <>
+        <Header /> {/* Add Header */}
+        <VisionMission />
+        <Footer /> {/* Add Footer */}
+      </>
+    ),
+    errorElement: <Error />,
   },
 ]);

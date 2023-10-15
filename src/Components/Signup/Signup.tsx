@@ -84,8 +84,7 @@ const Signup = () => {
           Sign In
         </Link>
       </div>
-      <button onClick={signOut}>SignOut</button>
-
+    
     </div>
   );
 };
