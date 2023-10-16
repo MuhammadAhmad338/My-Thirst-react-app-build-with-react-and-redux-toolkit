@@ -4,7 +4,6 @@ import { register } from "../../Services/account";
 import { useAppDispatch } from "../../hooks/hooks";
 import { Link, redirect } from "react-router-dom";
 import "./Signup.css";
-import { signOut } from "../../Utils/helper";
 
 const Signup = () => {
   const dispatch = useAppDispatch();
