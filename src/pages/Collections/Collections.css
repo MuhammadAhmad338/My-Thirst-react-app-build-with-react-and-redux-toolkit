@@ -2,6 +2,12 @@
   margin-top: 20px;
 }
 
+.collections p {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5em;
+}
+
 .product-list {
   min-height: 100vh;
 }
@@ -25,8 +31,6 @@
 
 .collection-product-card img {
   width: 350px;
-  background-size: cover;
-  background-repeat: no-repeat;
   height: 350px;
 }
 

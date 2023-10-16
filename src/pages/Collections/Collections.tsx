@@ -32,7 +32,7 @@ const Collections = () => {
 
     return (
         <div className='collections'>
-            <h1>All Collections</h1>
+            <p>All Collections</p>
             <div className="product-list">
                 {myCollections.map((item) => (
                     <div className='collection-product-card' key={item.id}>

@@ -5,11 +5,8 @@
 }
 
 .trending-background-image {
-  background-image: url("src/assets/backgroundImage.jpg");
   width: 100%; /* Set the desired width */
   height: 600px; /* Set the desired height */
-  background-size: cover;
-  background-position: center;
 }
 
 .trending-content {
