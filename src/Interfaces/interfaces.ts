@@ -125,6 +125,10 @@ export interface Category {
     name: string,
 }
 
+export interface About {
+    name: string
+}
+
 export interface CartProduct {
     id: number,
     title: string,

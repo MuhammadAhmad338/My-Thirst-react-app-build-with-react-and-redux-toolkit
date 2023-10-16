@@ -13,7 +13,7 @@ import Header from "../Components/Header/Header";
 import Footer from "../Components/Footer/Footer";
 import Signin from "../Components/Signin/Signin";
 import VisionMission from "../pages/VisionMission/visionmission";
-import OurStory from "../pages/OurStory/outStory";
+import OurStory from "../pages/OurStory/ourStory";
 
 export const routes = createBrowserRouter([
   {

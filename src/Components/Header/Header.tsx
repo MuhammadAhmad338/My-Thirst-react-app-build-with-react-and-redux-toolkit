@@ -11,10 +11,11 @@ import { RootState } from "../../Store/store.ts";
 import { toggleCartSide } from '../../Services/toggleService.ts';
 import { toggleSearch } from '../../Services/toggleSearchService.ts';
 import TopSearchContainer from "../Search/TopSearch/TopSearch.tsx";
-import { Category } from "../../Interfaces/interfaces.ts";
+import { About, Category } from "../../Interfaces/interfaces.ts";
 import { useAppDispatch } from "../../hooks/hooks.ts";
 import { searchByCategory } from "../../Services/searchService.ts";
 import "./Header.css";
+
 const Header = () => {
 
   const toggleCart = useSelector((item: RootState) => item.toggle.toggle);
@@ -38,11 +39,17 @@ const Header = () => {
   }
 
   const listOfCategories: Category[] = [
-    { name: "electronics" },
-    { name: "men's clothing" },
-    { name: "jewelry" },
-    { name: "women's clothing" },
+    { name: "Electronics" },
+    { name: "Men's clothing" },
+    { name: "Jewelry" },
+    { name: "Women's clothing" },
   ];
+
+  const aboutUsCategories: About[] = [
+    { name: "About" },
+    { name: "Our Story" },
+    { name: "Vision and Mission" }
+  ]
 
   return (
     <>
@@ -51,17 +58,13 @@ const Header = () => {
         <TopSearchContainer />
       </div>}
       <div className="header">
-
         <Link to="/" className="header-heading">
           <img src={img6} alt="" height={50} width={150} className="header-image" />
         </Link>
-
         <ul>
-
           <Link to="/" className="header-links">
             HOME
           </Link>
-
           <div className="dropdown">
             <li className="dropdown-toggle">CATEGORIES</li>
             <div className="dropdown-menu">
@@ -71,7 +74,7 @@ const Header = () => {
                   to="/products/productByCategory"
                   onClick={() => searchByCategories(item.name)}
                 >
-                  {item.name.toUpperCase()}
+                  {item.name}
                 </Link>
               ))}
             </div>
@@ -80,10 +83,38 @@ const Header = () => {
           <Link to="/contact" className="header-links">
             CONTACT
           </Link>
-          <Link to="/about" className="header-links">
-            ABOUT US
-          </Link>
-         
+          <div className="dropdown">
+            <li className="dropdown-toggle">ABOUT US</li>
+            <div className="dropdown-menu">
+              {aboutUsCategories.map((item) => (
+                <div>
+                  {
+                    (() => {
+                      if (item.name === 'About') {
+                        return (
+                          <Link to={'/about'} key={item.name}>
+                            {item.name}
+                          </Link>
+                        )
+                      } else if (item.name === 'Our Story') {
+                        return (
+                          <Link to={'/pages/our-story'} key={item.name}>
+                            {item.name}
+                          </Link>
+                        )
+                      } else {
+                        return (
+                          <Link to={'/pages/our-mission'} key={item.name}>
+                            {item.name}
+                          </Link>
+                        )
+                      }
+                    })()
+                  }
+                </div>))}
+            </div>
+          </div>
+
 
         </ul>
         <div className="header-icons">
@@ -96,7 +127,7 @@ const Header = () => {
             <span className="wishlist-count">{wishlistCount}</span>
           </Link>
           <img src={img4} alt="" onClick={toggleSideCart} width={30} height={30} className="cart-icon" />
-           <span className="cart-count">{cartCount}</span>
+          <span className="cart-count">{cartCount}</span>
         </div>
       </div>
     </>

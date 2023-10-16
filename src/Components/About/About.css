@@ -4,19 +4,21 @@
   min-height: 100vh;
   /* Align the items horizontally in the center */
   justify-content: center;
+  margin-top: 7%;
 }
 
 .about-us-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 10%;
   /* Set a fixed width for the content */
   width: 800px;
 }
 
 .about-us-heading {
     color: black;
+    color: var(--primary-color);
+    font-weight: bold;
 }
 
 .about-us-paragraph {
@@ -24,6 +26,8 @@
     text-align: center;
     /* Set the left and right margin to auto */
     margin-left: auto;
+    line-height: 1.5; 
+    color: var(--primary-color);
     margin-right: auto;
     margin-top: 5%;
     /* Optionally, you can also set a fixed width for the paragraph */

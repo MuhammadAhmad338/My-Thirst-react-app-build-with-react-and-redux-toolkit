@@ -1,4 +1,4 @@
-import './outStory.css';
+import './ourStory.css';
 
 const OurStory = () => {
     return (

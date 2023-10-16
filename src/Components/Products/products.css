@@ -81,7 +81,7 @@
   min-height: 100vh;
 }
 
-.failed-link  {
+.failed-link {
   color: black;
   border: 1px solid black;
   padding: 8px;
@@ -108,10 +108,10 @@
   }
 }
 /* Media query for screens with a maximum width of 600px (typical for mobile devices) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
   .product-list {
-    grid-template-columns: 1fr; /* Change to a single column for mobile screens */
-    gap: 10px; /* Adjust the gap for smaller screens */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .product-card {

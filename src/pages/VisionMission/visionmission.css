@@ -10,6 +10,7 @@
 
 .vision-mission-heading {
   font-size: 1.3em;
+  font-weight: bold;
   text-align: center;
   color: var(--primary-color);
 }
@@ -26,6 +27,7 @@
 .vision-heading,
 .mission-heading {
   font-size: 1.2em;
+  font-weight: bold;
   color: var(--primary-color);
 }
 
