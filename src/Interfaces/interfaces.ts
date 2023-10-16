@@ -129,6 +129,11 @@ export interface About {
     name: string
 }
 
+export interface MyCollection {
+    id: number,
+    name: string,
+    image: string
+}
 export interface CartProduct {
     id: number,
     title: string,

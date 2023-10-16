@@ -87,7 +87,7 @@ const Header = () => {
             <li className="dropdown-toggle">ABOUT US</li>
             <div className="dropdown-menu">
               {aboutUsCategories.map((item) => (
-                <div>
+                <div key={item.name}>
                   {
                     (() => {
                       if (item.name === 'About') {
@@ -117,6 +117,7 @@ const Header = () => {
 
 
         </ul>
+        
         <div className="header-icons">
           <img onClick={toggleSearchIcons} src={img3} alt="" width={25} height={25} />
           <Link to="/account/login">
@@ -129,6 +130,7 @@ const Header = () => {
           <img src={img4} alt="" onClick={toggleSideCart} width={30} height={30} className="cart-icon" />
           <span className="cart-count">{cartCount}</span>
         </div>
+
       </div>
     </>
   );

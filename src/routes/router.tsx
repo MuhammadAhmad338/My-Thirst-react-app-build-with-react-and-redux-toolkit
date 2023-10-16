@@ -14,6 +14,7 @@ import Footer from "../Components/Footer/Footer";
 import Signin from "../Components/Signin/Signin";
 import VisionMission from "../pages/VisionMission/visionmission";
 import OurStory from "../pages/OurStory/ourStory";
+import Collections from "../pages/Collections/Collections";
 
 export const routes = createBrowserRouter([
   {
@@ -149,4 +150,26 @@ export const routes = createBrowserRouter([
     ),
     errorElement: <Error />,
   },
+  {
+    path: "pages/collections",
+    element: (
+      <>
+        <Header />
+        <Collections />
+        <Footer />
+      </>
+    ),
+    errorElement: <Error />
+  },
+  {
+    path: "pages/collections/:id",
+    element: (
+      <>
+        <Header />
+        <Collections />
+        <Footer />
+      </>
+    ),
+    errorElement: <Error />
+  }
 ]);
