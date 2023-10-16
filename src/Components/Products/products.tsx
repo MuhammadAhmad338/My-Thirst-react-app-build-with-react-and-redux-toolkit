@@ -8,6 +8,7 @@ import { Product } from "../../Interfaces/interfaces";
 import img1 from "../../assets/1494.gif";
 import { Link, useNavigate } from "react-router-dom";
 import "./products.css";
+import TrendingProducts from "./TrendingProducts/TrendingProducts";
 
 const Products = () => {
 
@@ -39,6 +40,7 @@ const Products = () => {
   }
 
   return (
+    <>
     <div className="product-list">
       {data.map((item) => (
         <div
@@ -55,6 +57,8 @@ const Products = () => {
         </div>
       ))}
     </div>
+    <TrendingProducts />
+    </>
   );
 };
 
