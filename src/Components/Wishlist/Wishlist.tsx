@@ -1,12 +1,13 @@
-import "./Wishlist.css";
-import Search from "../Search/Search";
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Store/store";
 import { removeFromWishlist } from "../../Services/wishlist";
 import { useNavigate } from "react-router-dom";
 import { WishlistProduct } from "../../Interfaces/interfaces";
+import "./Wishlist.css";
 
 const Wishlist = () => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const items = useSelector((state: RootState) => state.wishlist.items);
@@ -23,25 +24,22 @@ const Wishlist = () => {
     <div className="wishlist">
       <div className="wishlist-header">
         <h1>My Wishlist</h1>
-        <Search />
+        <input type="text" placeholder="Search here" className="wishlist-search" />
       </div>
-      {!items.length && <div className="wishlist-noproduct">No Products!</div>}
-      <div className="products-wishlist-grid">
-        {items.map((item) => (
-          <div className="product-card" key={item.id} onClick={() => navigateToSingleProduct(item.id, item)}>
-            <img
-              src={item.image}
-              alt="Product Card Image"
-              height={300}
-              width={300}
-            />
-            <div>{item.title}</div>
-            <div className="product-price">
-              <div> $ {item.price}</div>
-              <button onClick={() => removefromwishlist(item.id)}>X</button>
+      {!items.length && <div className="no-wishlist-products">No Products</div>}
+      <div className="wishlist-products-list">
+        {items.length > 0 && items.map((item) => <>
+          <div className="wishlist-product-div">
+            <div className="remove-wishlist" onClick={() => removefromwishlist(item.id)}>X</div>
+            <div className="wishlist-product"
+              onClick={() => navigateToSingleProduct(item.id, item)}>
+              <img src={item.image} alt="" width={200} height={200} />
+              <p>{item.title}</p>
+              <p>$ {item.price}</p>
             </div>
+            <div className="wishlist-cart">MOVE TO CART</div>
           </div>
-        ))}
+        </>)}
       </div>
     </div>
   );

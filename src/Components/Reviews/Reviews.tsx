@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { getReviews, postReviews } from '../../Services/reviewService'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../Store/store'

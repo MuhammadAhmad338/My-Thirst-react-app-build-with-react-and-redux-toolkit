@@ -29,7 +29,7 @@ export const routes = createBrowserRouter([
     errorElement: <Error />,
   },
   {
-    path: "wishlist",
+    path: "/wishlist",
     element: (
       <>
         <Header />

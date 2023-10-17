@@ -7,8 +7,8 @@ import { useAppDispatch } from "../../hooks/hooks";
 import { Product } from "../../Interfaces/interfaces";
 import img1 from "../../assets/1494.gif";
 import { Link, useNavigate } from "react-router-dom";
-import "./products.css";
 import TrendingProducts from "./TrendingProducts/TrendingProducts";
+import "./products.css";
 
 const Products = () => {
 
@@ -42,7 +42,7 @@ const Products = () => {
   return (
     <>
     <div className="product-list">
-      {data.map((item) => (
+      {data.map((item: Product) => (
         <div
           onClick={() => componentB(item.id, item)}
           className="product-card"

@@ -6,9 +6,8 @@ import img1 from '../../assets/jewelry.jpg';
 import img2 from '../../assets/mensClothing.jpg';
 import img3 from '../../assets/womenClothing.jpg';
 import { useAppDispatch } from '../../hooks/hooks';
-import './Collections.css';
 import { searchByCategory } from '../../Services/searchService';
-
+import './Collections.css';
 
 const Collections = () => {
 
@@ -41,7 +40,7 @@ const Collections = () => {
                             <p>{item.name}</p>
                             <div className='collection-button' onClick={() => {
                                 componentB(),
-                                    searchCollections(item.name)
+                                searchCollections(item.name)
                             }}>
                                 Shop Now
                             </div>
