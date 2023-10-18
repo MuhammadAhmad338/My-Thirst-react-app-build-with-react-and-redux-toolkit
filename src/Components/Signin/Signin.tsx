@@ -25,12 +25,10 @@ const Signin = () => {
     }
 
     const response = await dispatch(login(form));
-    if (response !== undefined) {
+    if (response.payload !== undefined) {
       alert(`User is LoggedIn!`);
       navigate("/");
-      window.location.reload();
-    } else {
-      alert("Invalid Credentials");
+      window.location.reload();     
     }
   };
 

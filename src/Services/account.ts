@@ -33,9 +33,14 @@ export const login = createAsyncThunk<User, SignInState>(
       credentials,
       userconfig
     );
+    console.log(response.data.token);
     // Store the token in local storage
-    localStorage.setItem("token", response.data.token);
-    return response.data.token;
+    if (response.data.token !== undefined) {
+      localStorage.setItem("token", response.data.token);
+      return response.data.token;
+    } else {
+    alert("Please Check Your Credentials!");
+    }
   }
 );
 
