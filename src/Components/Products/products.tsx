@@ -17,7 +17,7 @@ const Products = () => {
   const data = useSelector((state: RootState) => state.api.data);
   const error = useSelector((state: RootState) => state.api.error);
   const status = useSelector((state: RootState) => state.api.status);
-
+  
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);

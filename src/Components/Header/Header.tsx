@@ -114,8 +114,6 @@ const Header = () => {
                 </div>))}
             </div>
           </div>
-
-
         </ul>
 
         <div className="header-icons">
