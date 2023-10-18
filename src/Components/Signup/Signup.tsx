@@ -2,7 +2,7 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { register } from "../../Services/account";
 import { useAppDispatch } from "../../hooks/hooks";
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Signup.css";
 
 const Signup = () => {
@@ -30,7 +30,7 @@ const Signup = () => {
     const response = dispatch(register(formData));
     if (response !== undefined) {
       alert(`User is LoggedIN!`);
-      return redirect("/");
+      window.location.reload();
     } else {
       alert("Invalid Credentials");
     }
@@ -83,7 +83,7 @@ const Signup = () => {
           Sign In
         </Link>
       </div>
-    
+
     </div>
   );
 };

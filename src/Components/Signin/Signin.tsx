@@ -1,12 +1,14 @@
-import { Link, redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAppDispatch } from "../../hooks/hooks";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { login } from "../../Services/account";
+import { useNavigate } from "react-router-dom";
 import "./Signin.css";
 
 const Signin = () => {
   const [form, setForm] = useState({ email: "", password: "" });
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -25,8 +27,8 @@ const Signin = () => {
     const response = await dispatch(login(form));
     if (response !== undefined) {
       alert(`User is LoggedIn!`);
+      navigate("/");
       window.location.reload();
-      return redirect("/");
     } else {
       alert("Invalid Credentials");
     }

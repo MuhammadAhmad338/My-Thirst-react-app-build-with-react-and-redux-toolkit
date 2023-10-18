@@ -1,8 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { getReviews, postReviews } from '../../Services/reviewService'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../Store/store'
-import { JSXElementConstructor, ReactElement, ReactNode, ReactPortal, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useAppDispatch } from '../../hooks/hooks'
 import './Reviews.css'
 
@@ -122,7 +123,7 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
                 placeholder='Give your review a title' />
               <label htmlFor="">Body of Review</label>
               <textarea name="" id=""
-              value={content}
+                value={content}
                 onChange={(e) => setContent(e.target.value)}
                 placeholder='Write your comments here' cols={30} rows={10}>
               </textarea>
@@ -134,12 +135,12 @@ const Reviews = ({ productid }: { productid: number }): JSX.Element => {
         <div className='previous-reviews'>
           <p className='previous-reviews-heading'>Previous Reviews</p>
           {
-            reviews.map((item: { rating: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; reviewtitle: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; content: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined }) => (
-              <>
+            reviews.map((item) => (
+              <div key={item.reviewid}>
                 <p>{item.rating}</p>
                 <p>{item.reviewtitle}</p>
                 <p>{item.content}</p>
-              </>
+              </div>
             ))
           }
         </div>

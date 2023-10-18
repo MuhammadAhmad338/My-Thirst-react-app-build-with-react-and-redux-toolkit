@@ -117,12 +117,16 @@ const Header = () => {
 
 
         </ul>
-        
+
         <div className="header-icons">
           <img onClick={toggleSearchIcons} src={img3} alt="" width={25} height={25} />
-          <Link to="/account/login">
-            <img src={img5} alt="" width={25} height={25} />
-          </Link>
+          {
+            localStorage.getItem('token') !== null ? <Link to="/account">
+              <img src={img5} alt="" width={25} height={25} />
+            </Link> : <Link to="/account/login">
+              <img src={img5} alt="" width={25} height={25} />
+            </Link>
+          }
           <Link to="/wishlist">
             <img src={img2} alt="" width={30} height={30} />
             <span className="wishlist-count">{wishlistCount}</span>

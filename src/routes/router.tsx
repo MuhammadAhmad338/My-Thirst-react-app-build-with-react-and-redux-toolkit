@@ -15,6 +15,7 @@ import Signin from "../Components/Signin/Signin";
 import VisionMission from "../pages/VisionMission/visionmission";
 import OurStory from "../pages/OurStory/ourStory";
 import Collections from "../pages/Collections/Collections";
+import Account from "../Components/Account/Account";
 
 export const routes = createBrowserRouter([
   {
@@ -156,6 +157,17 @@ export const routes = createBrowserRouter([
       <>
         <Header />
         <Collections />
+        <Footer />
+      </>
+    ),
+    errorElement: <Error />
+  },
+  {
+    path: "/account",
+    element: (
+      <>
+        <Header />
+        <Account />
         <Footer />
       </>
     ),
