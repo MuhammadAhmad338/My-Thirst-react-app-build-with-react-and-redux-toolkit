@@ -59,7 +59,7 @@ const CartSidebar = ({ closeCart }: any) => {
         cartItems.map((item) => (
             <div key={item.id} className="cart-item-card">
               <div  className="cart-item">
-                <img src={item.image} alt="" width={150} height={100} />
+                <img src={item.image} alt="Cart Image" width={150} height={100} />
                 <div className="cartItem-info">
                   <p>{item.title}</p>
                   <p>$ {item.price}</p>
@@ -89,7 +89,7 @@ const CartSidebar = ({ closeCart }: any) => {
           </div>
           <div className="empty-cart-body">
            <p className="empty-cart-text">Your cart is empty</p>
-            <button onClick={continueShopping}>Continue Shopping</button>
+            <button className="empty-cart-body-button" onClick={continueShopping}>Continue Shopping</button>
           </div>
         </div>
       )}
