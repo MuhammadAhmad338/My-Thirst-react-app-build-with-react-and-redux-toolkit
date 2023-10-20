@@ -30,7 +30,9 @@ const SingleProduct = () => {
           />
         </div>
         <div className="product-details">
+        <h3>Title</h3>
           <div>{location.state.item.title}</div>
+          <h3>Description</h3>
           <div>{location.state.item.description}</div>
           <div className="product-price">
             <div> $ {location.state.item.price}</div>

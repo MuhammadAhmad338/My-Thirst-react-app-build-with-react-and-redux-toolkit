@@ -64,7 +64,6 @@ const CartSidebar = ({ closeCart }: any) => {
                   <p>{item.title}</p>
                   <p>$ {item.price}</p>
                 </div>
-                <p>${item.price}</p>
               </div>
               <div className="cart-item-buttons">
                 <div className="cart-item-button">

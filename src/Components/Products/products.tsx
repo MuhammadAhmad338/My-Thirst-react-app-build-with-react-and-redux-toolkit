@@ -17,7 +17,7 @@ const Products = () => {
   const data = useSelector((state: RootState) => state.api.data);
   const error = useSelector((state: RootState) => state.api.error);
   const status = useSelector((state: RootState) => state.api.status);
-  
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, [dispatch]);
@@ -30,7 +30,7 @@ const Products = () => {
     return <div className="failed">
       <p>Please login or resgister to see the products {error}</p>
       <Link to="/account/login" className="failed-link">
-        Create Account
+       CREATE ACCOUNT
       </Link>
     </div>;
   }
@@ -52,8 +52,8 @@ const Products = () => {
             src={item.image}
             alt="Product Card Image"
           />
-          <div className="product-title">{item.title}</div>
-          <div className="product-price">$ {item.price}</div>
+          <p className="product-title">{item.title}</p>
+          <p className="product-price">$ {item.price}</p>
         </div>
       ))}
     </div>

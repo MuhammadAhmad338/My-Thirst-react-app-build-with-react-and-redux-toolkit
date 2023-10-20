@@ -26,12 +26,15 @@ const Header = () => {
   const categoryDispatch = useAppDispatch();
   const dispatch = useDispatch();
 
+ 
+
   const toggleSideCart = () => {
     dispatch(toggleCartSide(!toggleCart));
   }
 
   const toggleSearchIcons = () => {
     dispatch(toggleSearch(!toggleSearchIcon));
+
   }
 
   const searchByCategories = (item: string) => {
@@ -79,7 +82,6 @@ const Header = () => {
               ))}
             </div>
           </div>
-
           <Link to="/contact" className="header-links">
             CONTACT
           </Link>

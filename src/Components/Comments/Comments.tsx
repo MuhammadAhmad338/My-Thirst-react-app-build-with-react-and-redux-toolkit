@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { Comment } from '../../Interfaces/interfaces';
-import { format } from 'date-fns';
 import { useAppDispatch } from '../../hooks/hooks';
 import { postComment, getCommentsByProducts } from '../../Services/commentService';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux/es/hooks/useSelector';
 import { RootState } from '../../Store/store';
+import { format } from 'date-fns';
 import './Comments.css';
 
 const Comments = ({ productId }: { productId: number }): JSX.Element => {

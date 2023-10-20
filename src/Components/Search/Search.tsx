@@ -12,6 +12,13 @@ const Search = () => {
   const componentB = (id: number, item: Product) => {
     navigate(`/product/${id}`, { state: { item } });
   }
+ 
+  if (results.length === 0) {
+    return <div className="no-results-found">
+        <p>No Results Found</p>
+        <p>Please Search By Products Titles</p>
+    </div>
+  }
 
   return (
     <div className="search-product-list">

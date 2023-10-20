@@ -62,7 +62,7 @@
   padding: 8px 4px;
   text-align: center;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-  height: 330px;
+  height: 350px;
 }
 
 .wishlist-cart {
@@ -90,4 +90,12 @@
   right: 4%;
   color: black;
   cursor: pointer;
+}
+
+.wishlist-product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
 }

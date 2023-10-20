@@ -1,21 +1,28 @@
 .top-search {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: center;
-    align-content: center;
-    gap: 50px;
+    gap: 30px;
+    padding: 12px 0px;
 }
 
-.top-search-bar {
-    width: 100%;
+.top-search p {
+    text-transform: uppercase;
+    font-size: 1.2em;
 }
 
 .closeSearch {
     cursor: pointer;
-    width: 50px;
-    height: 50px;
+    padding: 4px 8px;
+    border-radius: 50%;
+    color: black;
+    border: 1px solid black;
 }
 
-input {
-    width: 100%;
+.input-search {
+    width: 500px;
+    outline: none;
+    padding: 12px 8px;
+    border: 1px solid black;
 }

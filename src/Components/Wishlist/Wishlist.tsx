@@ -3,7 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../Store/store";
 import { removeFromWishlist } from "../../Services/wishlist";
 import { useNavigate } from "react-router-dom";
-import { WishlistProduct } from "../../Interfaces/interfaces";
+import { addToCart } from "../../Services/cartService";
+import { CartProduct, WishlistProduct } from "../../Interfaces/interfaces";
 import "./Wishlist.css";
 
 const Wishlist = () => {
@@ -20,6 +21,10 @@ const Wishlist = () => {
     navigate(`/product/${id}`, { state: { item } });
   }
 
+  const cart = (item: WishlistProduct) => {
+    dispatch(addToCart(item as unknown as CartProduct));
+  }
+
   return (
     <div className="wishlist">
       <div className="wishlist-header">
@@ -28,18 +33,18 @@ const Wishlist = () => {
       </div>
       {!items.length && <div className="no-wishlist-products">No Products</div>}
       <div className="wishlist-products-list">
-        {items.length > 0 && items.map((item) => <>
-          <div className="wishlist-product-div">
+        {items.length > 0 && items.map((item) =>
+          <div className="wishlist-product-div" key={item.id}>
             <div className="remove-wishlist" onClick={() => removefromwishlist(item.id)}>X</div>
             <div className="wishlist-product"
               onClick={() => navigateToSingleProduct(item.id, item)}>
-              <img src={item.image} alt="" width={200} height={200} />
-              <p>{item.title}</p>
+              <img src={item.image} alt="" width={200} height={180} />
+              <p className="wishlist-product-title">{item.title}</p>
               <p>$ {item.price}</p>
             </div>
-            <div className="wishlist-cart">MOVE TO CART</div>
+            <div className="wishlist-cart" onClick={() => cart(item)}>MOVE TO CART</div>
           </div>
-        </>)}
+        )}
       </div>
     </div>
   );

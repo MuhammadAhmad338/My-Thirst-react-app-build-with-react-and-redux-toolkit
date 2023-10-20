@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { KeyboardEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { toggleSearch } from '../../../Services/toggleSearchService';
@@ -29,15 +30,8 @@ const TopSearchContainer = () => {
     return (
         <div className='top-search'>
             <p>Thirst Search</p>
-            <form action="">
-                <input
-                    className='top-search-bar'
-                    type="text"
-                    placeholder='Search'
-                    onKeyPress={(e) => searchIt(e)}
-                />
-            </form>
-            <div className='closeSearch' onClick={toggleSearchState}>X</div>
+            <input type="text" className='input-search' placeholder='Search by product title' onKeyDown={searchIt} />
+            <div className='closeSearch' onClick={toggleSearchState}>x</div>
         </div>
     );
 }
