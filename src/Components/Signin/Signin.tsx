@@ -28,14 +28,15 @@ const Signin = () => {
     if (response.payload !== undefined) {
       alert(`User is LoggedIn!`);
       navigate("/");
-      window.location.reload();     
+      window.location.reload();
     }
   };
+
 
   return (
     <div className="signin">
       <div className="signin-container">
-        <h1>Sign In</h1>
+        <h1>Login</h1>
         <input
           type="email"
           name="email"

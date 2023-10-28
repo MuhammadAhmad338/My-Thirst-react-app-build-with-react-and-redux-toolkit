@@ -33,7 +33,6 @@ export const login = createAsyncThunk<User, SignInState>(
       credentials,
       userconfig
     );
-    console.log(response.data.token);
     // Store the token in local storage
     if (response.data.token !== undefined) {
       localStorage.setItem("token", response.data.token);
