@@ -1,50 +1,48 @@
 .contact-us {
   /* Set the display property to flex */
   display: flex;
-  min-height: 100vh;
-  /* Align the items horizontally in the center */
-  justify-content: center;
-}
-
-.contact-us-content {
-  display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 7%;
+  justify-content: center;
+  max-width: 60%; /* Set a max-width to control text width and keep it readable */
+  margin: 0 auto;
+  min-height: 100vh;
   gap: 10px;
-  /* Set a fixed width for the content */
-  width: 700px;
 }
-
 .contact-us-name-email {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  align-items: center;
+  justify-content: center;
   width: 100%;
+  gap: 10px;
+} 
+
+.contact-us-heading {
   margin-top: 5%;
+  margin-bottom: 5%;
+  color: gray;
 }
 
 .contact-us-name {
-  width: 340px;
-  height: 50px;
+  border: 1px solid black;
   border-radius: none;
   outline: none;
-  border: 1px solid black;
+  width: 100%;
 }
 
 .contact-us-email {
-  width: 350px;
-  height: 50px;
-  border-radius: none;
   border: 1px solid black;
-  text-decoration: none;
+  border-radius: none;
   outline: none;
+  width: 100%;
 }
 
 .contact-us-phone {
   border: 1px solid black;
   border-radius: none;
   outline: none;
+  width: 100%;
 }
 
 .contact-us-textarea {
@@ -52,7 +50,6 @@
   border-radius: none;
   outline: none;
   width: 100%;
-  padding: 2%;
 }
 
 .contact-us-sendmessage {
@@ -65,7 +62,7 @@
   cursor: pointer;
   /* add the animation property */
   /* add the box-shadow property */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   animation: color-change 5s infinite;
 }
 
@@ -85,5 +82,77 @@
   }
   100% {
     background-color: lightgrey;
+  }
+}
+@media screen and (max-width: 768px) {
+  .contact-us {
+    /* Set the display property to flex */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 90%; /* Set a max-width to control text width and keep it readable */
+    margin: 0 auto;
+    min-height: 100vh;
+    gap: 10px;
+  }
+  .contact-us-name-email {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 10px;
+  }
+
+  
+
+  .contact-us-phone {
+    border: 1px solid black;
+    border-radius: none;
+    outline: none;
+    width: 100%;
+    padding: 4%;
+  }
+
+  .contact-us-textarea {
+    border: 1px solid black;
+    border-radius: none;
+    outline: none;
+    width: 100%;
+    padding: 4%;
+  }
+
+  .contact-us-sendmessage {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid black;
+    background-color: lightgrey;
+    width: 100%;
+    transition: none;
+    cursor: pointer;
+    /* add the animation property */
+    /* add the box-shadow property */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: color-change 5s infinite;
+  }
+
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
   }
 }

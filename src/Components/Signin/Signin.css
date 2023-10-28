@@ -2,23 +2,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 100vh;
   margin: 0 auto;
-  max-width: 35%;
+  max-width: 80%;
   gap: 50px;
 }
 
 .signin-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 20px;
+  justify-content: center;
+  gap: 12px;
+
 }
 
-input {
+.signin-fields {
+  width: 40%;
   padding: 15px 10px;
-  width: 100%;
+  outline: none;
+  border: 1px solid black;
+  gap: 12px;
 }
 
 .signin-links {
@@ -26,24 +30,88 @@ input {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 25px;
+  gap: 15px;
 }
 
-.signin-button {
-    padding: 12px 30px;
+.signin-links button {
+    padding: 15px 5px;
     border: 1px solid black;
+    width: 12%;
     animation: color-change 5s infinite;
-  }
+}
 
-  .incorrect-email-password {
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
+
+.incorrect-email-password {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+  gap: 10px;
+}
+
+
+
+
+@media screen and (max-width: 768px) {
+  .signin {
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
-    gap: 10px;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    max-width: 80%;
+    gap: 50px;
   }
+
+  .signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
   
-  /* define the @keyframes rule */
+  }
+
+  .signin-fields {
+    width: 100%;
+    padding: 10px 8px;
+    outline: none;
+    border: 1px solid black;
+   
+  }
+
+  .signin-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .signin-links button {
+      padding: 15px 17px;
+      border: 1px solid black;
+      width: 50%;
+      animation: color-change 5s infinite;
+  }
+
   @keyframes color-change {
     0% {
       background-color: lightgrey;
@@ -61,9 +129,12 @@ input {
       background-color: lightgrey;
     }
   }
-
-.create-account {
-    text-decoration: none;
-    color: black;
-    border-bottom: 1px solid black;
+  
+  .incorrect-email-password {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    gap: 10px;
+  }
 }

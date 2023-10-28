@@ -1,36 +1,41 @@
 .about-us {
-  /* Set the display property to flex */
-  display: flex;
+  font-size: 0.95em; /* Adjust the font size for better readability */
+  line-height: 1.5; /* Adjust the line height for better vertical spacing */
+  text-align: center; /* Center the text horizontally */
+  color: var(--primary-color);
+  max-width: 60%;  /* Set a max-width to control text width and keep it readable */
+  margin: 0 auto; /* Center the element within its parent container horizontally */
   min-height: 100vh;
-  /* Align the items horizontally in the center */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  margin-top: 7%;
+  gap: 100px;
 }
 
 .about-us-content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  /* Set a fixed width for the content */
-  width: 800px;
+  gap: 20px;
 }
 
-.about-us-heading {
-    color: black;
-    color: var(--primary-color);
-    font-weight: bold;
-}
-
-.about-us-paragraph {
-    /* Align the text to the center */
-    text-align: center;
-    /* Set the left and right margin to auto */
-    margin-left: auto;
-    line-height: 1.5; 
-    color: var(--primary-color);
-    margin-right: auto;
-    margin-top: 5%;
-    /* Optionally, you can also set a fixed width for the paragraph */
-    width: 700px;
+  @media screen and (max-width: 768px) {
+    .about-us {
+      display: flex;
+      flex-direction: column;
+      
+      min-height: 100vh;
+      max-width: 100%;
+    }
+    .about-us-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      max-width: 80%;
+    }
+    .about-us-paragraph {
+      text-align: center;
+    }
   }
-  

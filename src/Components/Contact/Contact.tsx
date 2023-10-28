@@ -40,8 +40,7 @@ const Contact = () => {
     };
 
     return (
-        <div className='contact-us'>
-            <div className='contact-us-content'>
+        <div className='contact-us'> 
                 <h2 className='contact-us-heading'>Contact</h2>
 
                 <div className='contact-us-name-email'>
@@ -61,6 +60,7 @@ const Contact = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
+
                 <input
                     type="text"
                     name='phone'
@@ -79,7 +79,7 @@ const Contact = () => {
                     cols={30} className='contact-us-textarea'>Muhammad Ahmad</textarea>
                 <div className='contact-us-sendmessage' onClick={handleSubmit}>SEND MESSAGE</div>
 
-            </div>
+        
         </div>
     );
 }

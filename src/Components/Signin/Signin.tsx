@@ -35,14 +35,15 @@ const Signin = () => {
 
   return (
     <div className="signin">
+          <h1>Login</h1>
       <div className="signin-container">
-        <h1>Login</h1>
         <input
           type="email"
           name="email"
           value={form.email}
           onChange={handleChange}
           placeholder="Email"
+          className="signin-fields"
         />
         <input
           type="password"
@@ -50,6 +51,7 @@ const Signin = () => {
           value={form.password}
           onChange={handleChange}
           placeholder="Password"
+          className="signin-fields"
         />
       </div>
       <div className="signin-links">
