@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { getReviews, postReviews } from '../../Services/reviewService'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../Store/store'
-import { useEffect, useState } from 'react'
-import { useAppDispatch } from '../../hooks/hooks'
-import './Reviews.css'
+import { getReviews, postReviews } from '../../Services/reviewService';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../Store/store';
+import { useEffect, useState } from 'react';
+import { useAppDispatch } from '../../hooks/hooks';
+import './Reviews.css';
 
 const Reviews = ({ productid }: { productid: number }): JSX.Element => {
 

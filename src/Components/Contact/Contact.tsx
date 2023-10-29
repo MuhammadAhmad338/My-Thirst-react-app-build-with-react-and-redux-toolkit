@@ -42,7 +42,6 @@ const Contact = () => {
     return (
         <div className='contact-us'> 
                 <h2 className='contact-us-heading'>Contact</h2>
-
                 <div className='contact-us-name-email'>
                     <input className='contact-us-name'
                         type="text"
@@ -60,7 +59,6 @@ const Contact = () => {
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
-
                 <input
                     type="text"
                     name='phone'

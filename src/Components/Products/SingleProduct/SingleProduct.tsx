@@ -20,7 +20,7 @@ const SingleProduct = () => {
 
   return (
     <>
-      <div className="products">
+      <div className="single-product">
         <div className="single-product-card">
           <img
             src={location.state.item.image}

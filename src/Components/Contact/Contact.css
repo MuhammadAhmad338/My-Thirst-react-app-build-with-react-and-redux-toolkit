@@ -9,12 +9,14 @@
   min-height: 100vh;
   gap: 10px;
 }
+
 .contact-us-name-email {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   width: 100%;
+  
   gap: 10px;
 } 
 
@@ -29,12 +31,14 @@
   border-radius: none;
   outline: none;
   width: 100%;
+  padding: 1.5%;
 }
 
 .contact-us-email {
   border: 1px solid black;
   border-radius: none;
   outline: none;
+  padding: 1.5%;
   width: 100%;
 }
 
@@ -42,6 +46,7 @@
   border: 1px solid black;
   border-radius: none;
   outline: none;
+  padding: 1.5%;
   width: 100%;
 }
 
@@ -104,7 +109,21 @@
     width: 100%;
     gap: 10px;
   }
-
+  .contact-us-name {
+    border: 1px solid black;
+    border-radius: none;
+    outline: none;
+    width: 100%;
+    padding: 2%;
+  }
+  
+  .contact-us-email {
+    border: 1px solid black;
+    border-radius: none;
+    outline: none;
+    padding: 2%;
+    width: 100%;
+  }
   
 
   .contact-us-phone {
@@ -112,7 +131,7 @@
     border-radius: none;
     outline: none;
     width: 100%;
-    padding: 4%;
+    padding: 2%;
   }
 
   .contact-us-textarea {

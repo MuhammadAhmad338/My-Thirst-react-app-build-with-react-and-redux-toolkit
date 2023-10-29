@@ -1,10 +1,10 @@
-.products {
+.single-product {
   display: flex;
-  margin: auto 0;
   flex-direction: row; /* Change to column for mobile screens */
   align-items: center;
   justify-content: center;
   min-height: 100vh;
+  margin: 5%;
   gap: 7%;
 }
 
@@ -17,6 +17,7 @@
   justify-content: center;
   align-items: center;
   border: 1px solid black;
+  margin-top: 10%;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
 }
 
@@ -51,7 +52,7 @@
   }
   25% {
     background-color: pink;
-  }
+  }s
   50% {
     background-color: lightblue;
   }
@@ -95,17 +96,104 @@
     background-color: lightgrey;
   }
 }
-/* Media query for small screens (adjust the breakpoint as needed) */
-@media (max-width: 768px) {
-  .products {
-    flex-direction: column; /* Change to column for small screens */
-    justify-content: center; /* Center vertically */
-    padding: 20px 20px;
-  }
 
-  .product-card,
+/* Media query for small screens (adjust the breakpoint as needed) */
+@media screen and (max-width: 768px) {
+  .single-product {
+    display: flex;
+    flex-direction: column; /* Change to column for mobile screens */
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 5%;
+    gap: 7%;
+  }
+  
+  .single-product-card {
+    width: 100%; /* Take full width on mobile screens */
+    max-width: 400px; /* Adjust this value as needed */
+    padding: 20px 0px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    margin-top: 10%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
+  }
+  
   .product-details {
-    width: 100%; /* Take full width on small screens */
-    max-width: none; /* Reset max-width */
+    width: 100%; /* Take full width on mobile screens */
+    max-width: 400px; /* Adjust this value as needed */
+    padding: 20px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .add-to-cart-button {
+    background-color: lightblue;
+    padding: 3%;
+    color: black;
+    border: 1px solid black;
+    width: 90%;
+    cursor: pointer;
+    text-align: center;
+    border-radius: 1px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add a transition for background color and box shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: color-change 5s infinite;
+  }
+  
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }s
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
+  }
+  
+  .add-to-wishlist-button {
+    background-color: lightblue;
+    padding: 3%;
+    color: black;
+    border: 1px solid black;
+    width: 90%;
+    border-radius: 1px;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Add a transition for background color and box shadow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: color-change 5s infinite;
+  }
+  
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
   }
 }
