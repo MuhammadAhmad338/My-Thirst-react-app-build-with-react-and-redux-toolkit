@@ -58,6 +58,7 @@ const Signup = () => {
           placeholder="Last name"
           className="signup-input"
           onChange={handleChange}
+      
         />
         <input
           type="email"

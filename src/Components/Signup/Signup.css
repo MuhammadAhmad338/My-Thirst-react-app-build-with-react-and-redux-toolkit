@@ -2,42 +2,40 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 80vh;
+  min-height: 100vh;
   margin: 0 auto;
-  gap: 35px;
+  max-width: 80%;
+  gap: 50px;
 }
 
 .signup-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-}
-
-.signup-input {
-  display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: center;
-  outline: none;
-  border: 1px solid black;
-  max-width: 500px;
+  gap: 12px;
 }
 
 h1 {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.signup-input {
+  width: 40%;
+  padding: 15px 10px;
+  outline: none;
+  border: 1px solid black;
+  gap: 5px;
 }
 
 .create-button {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  gap: 25px;
+  align-items: center;
+  margin-top: 2%;
+  gap: 14px;
 }
 
 .create-button button {
@@ -62,5 +60,72 @@ h1 {
   }
   100% {
     background-color: lightgrey;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  
+  .signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    gap: 10px;
+  }
+
+  .signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10%;
+    gap: 10px;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+
+  .signup-input {
+    width: 100%;
+    padding: 10px 8px;
+    outline: none;
+    border: 1px solid black;
+  }
+
+  .create-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10%;
+    gap: 20px;
+  }
+
+  .create-button button {
+    padding: 15px 30px;
+    border: 1px solid black;
+    animation: color-change 5s infinite;
+  }
+
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
   }
 }
