@@ -34,10 +34,9 @@
 }
 
 .signin-links button {
-    padding: 15px 5px;
-    border: 1px solid black;
-    width: 12%;
-    animation: color-change 5s infinite;
+  padding: 15px 30px;
+  border: 1px solid black;
+  animation: color-change 5s infinite;
 }
 
 @keyframes color-change {
@@ -110,10 +109,9 @@ h1 {
   }
 
   .signin-links button {
-      padding: 15px 17px;
-      border: 1px solid black;
-      width: 50%;
-      animation: color-change 5s infinite;
+    padding: 15px 30px;
+    border: 1px solid black;
+    animation: color-change 5s infinite;
   }
 
   @keyframes color-change {
