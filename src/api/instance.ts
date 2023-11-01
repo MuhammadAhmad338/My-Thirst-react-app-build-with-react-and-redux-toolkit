@@ -1,7 +1,7 @@
 import axios from "axios";
 
 export const instance = axios.create({
-  baseURL: "https://thirstapp-c2g74jsita-uc.a.run.app/api/",
+  baseURL: "https://thirstme.onrender.com/api/",
   timeout: 1000,
 });
 

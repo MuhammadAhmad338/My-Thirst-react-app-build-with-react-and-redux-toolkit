@@ -14,13 +14,15 @@ const Products = () => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const data = useSelector((state: RootState) => state.api.data);
+ 
   const error = useSelector((state: RootState) => state.api.error);
   const status = useSelector((state: RootState) => state.api.status);
+  const data = useSelector((state: RootState) => state.api.data);
 
   useEffect(() => {
+    // Fetch data when the component first mounts
     dispatch(fetchProducts());
-  }, [dispatch]);
+  }, [dispatch, data.length]);
 
   if (status === "loading") {
     return <div className="loading"><img src={img1} alt="Loading Gif" width={65} height={65} /></div>;

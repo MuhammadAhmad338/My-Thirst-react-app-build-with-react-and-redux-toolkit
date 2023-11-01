@@ -36,11 +36,13 @@ const Header = () => {
   }
 
   return (
+    <>
+    {toggleCart && <CartSidebar/>}
     <header className="header">
       {!isOpen ?
         <i className="menu-icon" onClick={toggleMenu}>☰</i> :
         <i className="menu-icon" onClick={toggleMenu}>x</i>}
-      {toggleCart && <CartSidebar/>}
+     
       <img src={brandImage} alt="Thirst Image" width={50} height={50} />
       <div>
         <img src={wishlistImage} className="wishlistImage" alt="" width={30} height={30} />
@@ -76,6 +78,8 @@ const Header = () => {
         }
       </nav>}
     </header>
+    </>
+    
   );
 };
 
