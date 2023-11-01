@@ -8,6 +8,7 @@ import { removeFromCart } from "../../../Services/cartService.ts";
 import { removeFromWishlist } from "../../../Services/wishlist.ts";
 import { useNavigate } from "react-router-dom";
 import "./CartSidebar.css";
+import CartItem from "../CartItem/CartItem.tsx";
 
 const CartSidebar = () => {
 
@@ -31,35 +32,29 @@ const CartSidebar = () => {
   }
 
   return (
-    <div className="cart-sidebar">
-    <div className="cart-header">
-      <h2>My Cart</h2>
-      <button type="button" className="close-cart-sidebar">
-        X
-      </button>
-    </div>
-    <ul className="cart-items">
-      {cartItems.map((cartItem) => (
-        <li key={cartItem.id}>
-          <img src={cartItem.image} alt={cartItem.title} width={100} height={100} />
-          <div className="cart-item-info">
-            <h4>{cartItem.title}</h4>
-            <p>{cartItem.price}</p>
-            <button type="button" className="remove-from-cart">
-              Remove
-            </button>
+    <div className="sidebar">
+      {
+        cartItems.length >= 1 ? <>
+          <div className="sidebar-header">
+            <p>Your Cart</p>
+            <button onClick={continueShopping}>X</button>
           </div>
-        </li>
-      ))}
-    </ul>
-    <div className="cart-footer">
-      <p>Total: ${cartItems.reduce((total, cartItem) => total + cartItem.price, 0)}</p>
-      <button type="button" className="checkout-button">
-        Checkout
-      </button>
+          {
+            cartItems.map((item) => <CartItem item={item} />)
+          }
+          <div className="sub-total">
+             <div className="sub-total-price">
+             <p>SubTotal</p>
+              <p>$ 1200</p>
+             </div>
+             <button className="check-out">Check Out</button>
+          </div>
+        </> : <div className="continue-shopping">
+          <p>Your Cart is Empty</p>
+          <button onClick={continueShopping}>Continue Shopping</button>
+        </div>
+      }
     </div>
-  </div>
-   
   );
 };
 

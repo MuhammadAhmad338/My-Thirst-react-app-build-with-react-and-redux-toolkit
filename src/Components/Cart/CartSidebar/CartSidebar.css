@@ -1,48 +1,255 @@
-.cart-sidebar {
+.sidebar {
   position: fixed;
   top: 0;
+  bottom: 0;
   right: 0;
   width: 400px;
-  height: 100%;
-  overflow-y: auto;
-  background-color: white;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   z-index: 99;
+  background-color: white;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
 }
 
-.cart-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px;
-}
-
-.cart-items {
-  list-style: none;
+.sidebar ul {
+  list-style-type: none;
   padding: 0;
 }
 
-.cart-item-info {
+.sidebar li {
+  padding: 16px;
+}
+
+.sidebar a {
+  color: black;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.sidebar-header {
   display: flex;
+  flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 16px 16px;
 }
 
-.remove-from-cart {
-  border: none;
-  background-color: transparent;
-  color: red;
-  cursor: pointer;
+.sub-total {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px;
+  width: 400px;
+  gap: 15px
 }
 
-.cart-footer {
-  padding: 10px;
+.sub-total-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
 }
 
-.checkout-button {
-  border: none;
-  background-color: green;
-  color: white;
-  cursor: pointer;
+.sub-total button {
+  text-align: center;
+  border: 1px solid black;
+  width: 350px;
+  text-transform: uppercase;
+  padding: 12px 12px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  text-decoration: none;
+  animation: color-change 5s infinite;
+}
+
+/* define the @keyframes rule */
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
+
+.continue-shopping {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 20px;
+}
+
+
+.continue-shopping button {
+  padding: 8px 12px;
+  border: 1px solid black;
+  text-transform: uppercase;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  animation: color-change 5s infinite;
+}
+
+/* define the @keyframes rule */
+@keyframes color-change {
+  0% {
+    background-color: lightgrey;
+  }
+  25% {
+    background-color: pink;
+  }
+  50% {
+    background-color: lightblue;
+  }
+  75% {
+    background-color: lightgreen;
+  }
+  100% {
+    background-color: lightgrey;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    z-index: 99;
+    background-color: white;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    transition: transform 5s ease-in-out;
+}
+
+.sidebar.active {
+    transform: translateX(100%);
+}
+
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    padding: 16px;
+  }
+  
+  .sidebar a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  .sidebar a:hover {
+    background-color: #555;
+    color: white;
+  }
+  
+  .sidebar-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+  }
+  
+  .continue-shopping {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    gap: 20px;
+  }
+
+  .sub-total {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 20px;
+
+    gap: 15px
+  }
+  
+  .sub-total-price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+  }
+  
+  .sub-total button {
+    text-align: center;
+    border: 1px solid black;
+    text-transform: uppercase;
+    padding: 12px 12px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    text-decoration: none;
+    animation: color-change 5s infinite;
+  }
+  
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
+  }
+
+  .continue-shopping button {
+    padding: 8px 12px;
+    border: 1px solid black;
+    text-transform: uppercase;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+    animation: color-change 5s infinite;
+  }
+  
+  /* define the @keyframes rule */
+  @keyframes color-change {
+    0% {
+      background-color: lightgrey;
+    }
+    25% {
+      background-color: pink;
+    }
+    50% {
+      background-color: lightblue;
+    }
+    75% {
+      background-color: lightgreen;
+    }
+    100% {
+      background-color: lightgrey;
+    }
+  }
 }
