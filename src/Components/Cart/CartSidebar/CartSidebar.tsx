@@ -6,6 +6,7 @@ import { RootState } from "../../../Store/store";
 import { toggleCartSide } from "../../../Services/toggleService.ts";
 import { removeFromCart } from "../../../Services/cartService.ts";
 import { removeFromWishlist } from "../../../Services/wishlist.ts";
+import close from "../../../assets/close.png";
 import { useNavigate } from "react-router-dom";
 import "./CartSidebar.css";
 import CartItem from "../CartItem/CartItem.tsx";
@@ -37,17 +38,17 @@ const CartSidebar = () => {
         cartItems.length >= 1 ? <>
           <div className="sidebar-header">
             <p>Your Cart</p>
-            <button onClick={continueShopping}>X</button>
+            <img src={close} alt="Close Icon" onClick={continueShopping} />
           </div>
           {
             cartItems.map((item) => <CartItem item={item} />)
           }
           <div className="sub-total">
-             <div className="sub-total-price">
-             <p>SubTotal</p>
+            <div className="sub-total-price">
+              <p>SubTotal</p>
               <p>$ 1200</p>
-             </div>
-             <button className="check-out">Check Out</button>
+            </div>
+            <button className="check-out">Check Out</button>
           </div>
         </> : <div className="continue-shopping">
           <p>Your Cart is Empty</p>

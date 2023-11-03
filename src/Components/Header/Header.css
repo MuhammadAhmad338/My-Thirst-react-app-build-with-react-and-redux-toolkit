@@ -218,7 +218,6 @@ li a {
     color: gainsboro;
     animation: open-about-list 0.2s forwards;
   }
-  
   @keyframes open-about-list {
     from {
       max-height: 0;

@@ -6,9 +6,16 @@ const CartItem = ({ item }: any) => {
         <div className="cart-item">
             <img src={item.image} alt={item.title} />
             <div className="item-details">
-                <h3>{item.title}</h3>
-                <p>Price: ${item.price}</p>
-                <p>Quantity: ${item.quantity}</p>
+                <p>{item.title}</p>
+                <p>$ {item.price}</p>
+              <div className='cart-items-buttons'>
+              <div className='cart-item-count'>
+                    <button>-</button>
+                    <p>1</p>
+                    <button>+</button>
+                </div>
+             <div className='remove'>Remove</div>
+              </div>
             </div>
         </div>
     );

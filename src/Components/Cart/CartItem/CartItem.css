@@ -1,19 +1,22 @@
 .cart-item {
   display: flex;
   align-items: center;
+  border-bottom: 1px solid gainsboro;
   padding: 16px 0;
-  border-bottom: 1px solid #ccc;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  margin: 12px 16px;
 }
 
 .cart-item img {
   width: 100px;
   height: 100px;
-  object-fit: cover;
+  object-fit: fill;
 }
 
 .item-details {
   flex: 1;
+  flex-direction: column;
+  display: flex;
+  gap: 12px;
   padding-left: 16px;
 }
 
@@ -23,4 +26,102 @@
 
 .item-details p {
   margin-bottom: 0;
+}
+
+.cart-items-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 17px;
+  font-size: 1.1em;
+}
+
+.remove {
+  text-decoration: underline;
+}
+.remove:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cart-item-count {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  padding: 8px 12px;
+  font-size: 1.2em;
+  gap: 20px;
+}
+
+@media screen and (max-width: 768px) {
+  .cart-item {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    margin: 12px 16px;
+  }
+
+  .cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: fill;
+  }
+
+  .item-details {
+    flex: 1;
+    flex-direction: column;
+    display: flex;
+    gap: 12px;
+    padding-left: 16px;
+    font-size: 1em;
+  }
+
+  .cart-items-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 17px;
+    font-size: 1.1em;
+  }
+
+  .remove {
+    text-decoration: underline;
+    font-size: 1em;
+  }
+
+  .remove:hover {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .cart-item-count {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    padding: 6px 12px;
+    font-size: 1.2em;
+    gap: 20px;
+  }
+
+  .item-details p {
+    margin-bottom: 0;
+    font-size: 1em;
+  }
+
+  .cart-item-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+  .cart-item-buttons button {
+    border: 1px solid black;
+    padding: 2px 6px;
+    font-size: 1em;
+  }
 }
